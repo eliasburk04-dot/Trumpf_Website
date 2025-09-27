@@ -1,0 +1,60 @@
+# Thomas Burk GmbH - Webserver Konfiguration
+# Sicherheit und Performance für Kontaktformular
+
+# CORS-Header für Kontaktformular
+<Files "contact_handler.php">
+    Header add Access-Control-Allow-Origin "*"
+    Header add Access-Control-Allow-Methods "POST, OPTIONS"
+    Header add Access-Control-Allow-Headers "Content-Type"
+</Files>
+
+# Schutz vor direktem Zugriff auf Log-Dateien
+<Files "*.log">
+    Order allow,deny
+    Deny from all
+</Files>
+
+# Security Headers
+Header always set X-Content-Type-Options nosniff
+Header always set X-Frame-Options DENY
+Header always set X-XSS-Protection "1; mode=block"
+Header always set Referrer-Policy "strict-origin-when-cross-origin"
+
+# Verstecke PHP-Version
+Header unset X-Powered-By
+
+# Kompression für bessere Performance
+<IfModule mod_deflate.c>
+    AddOutputFilterByType DEFLATE text/plain
+    AddOutputFilterByType DEFLATE text/html
+    AddOutputFilterByType DEFLATE text/xml
+    AddOutputFilterByType DEFLATE text/css
+    AddOutputFilterByType DEFLATE application/xml
+    AddOutputFilterByType DEFLATE application/xhtml+xml
+    AddOutputFilterByType DEFLATE application/rss+xml
+    AddOutputFilterByType DEFLATE application/javascript
+    AddOutputFilterByType DEFLATE application/x-javascript
+</IfModule>
+
+# Cache-Control für statische Dateien
+<IfModule mod_expires.c>
+    ExpiresActive On
+    ExpiresByType text/css "access plus 1 month"
+    ExpiresByType application/javascript "access plus 1 month"
+    ExpiresByType image/png "access plus 1 year"
+    ExpiresByType image/jpg "access plus 1 year"
+    ExpiresByType image/jpeg "access plus 1 year"
+    ExpiresByType image/gif "access plus 1 year"
+    ExpiresByType image/svg+xml "access plus 1 year"
+</IfModule>
+
+# Rate Limiting (falls mod_rewrite verfügbar)
+<IfModule mod_rewrite.c>
+    RewriteEngine On
+    
+    # Blockiere häufige Spam-Anfragen
+    RewriteCond %{HTTP_USER_AGENT} ^$ [OR]
+    RewriteCond %{HTTP_USER_AGENT} (bot|crawler|spider) [NC]
+    RewriteCond %{REQUEST_URI} contact_handler\.php$
+    RewriteRule ^ - [F,L]
+</IfModule>

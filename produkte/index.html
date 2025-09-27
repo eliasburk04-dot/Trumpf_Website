@@ -1,0 +1,368 @@
+<!doctype html>
+<html lang="de">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Produkte – Thomas Burk GmbH</title>
+  <meta name="description" content="Produktübersicht: TRUMPF TruTool Elektro- & Akkuwerkzeuge. Kategorien und Filter.">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Produkte – Thomas Burk GmbH">
+  <meta property="og:description" content="Übersicht der Produktkategorien und Modelle.">
+  <meta property="og:url" content="https://example.com/produkte/">
+  <link rel="canonical" href="https://example.com/produkte/">
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="stylesheet" href="../assets/burk.css">
+  <link rel="icon" href="data:,">
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org",
+    "@type":"BreadcrumbList",
+    "itemListElement":[
+      {"@type":"ListItem","position":1,"name":"Home","item":"https://example.com/"},
+      {"@type":"ListItem","position":2,"name":"Produkte","item":"https://example.com/produkte/"}
+    ]
+  }
+  </script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="header"><div class="container header-inner">
+    <a href="../index.html" class="brand"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Thomas Burk GmbH</span></a>
+    <button class="menu-toggle" aria-label="Menü öffnen" aria-controls="primary-nav" aria-expanded="false"><span class="bar" aria-hidden="true"></span></button>
+    <nav id="primary-nav" class="nav" aria-label="Hauptnavigation">
+      <a href="index.html" aria-current="page">Produkte</a>
+      <a href="../index.html#services">Leistungen</a>
+      <a href="../index.html#trutool">TruTool</a>
+      <a href="../kontakt.html">Kontakt</a>
+    </nav>
+  </div></header>
+  <main id="main" class="section">
+    <div class="container">
+    <nav aria-label="Breadcrumb" class="card" style="padding:12px 16px;margin-bottom:16px">
+        <ol style="list-style:none;display:flex;gap:8px;margin:0;padding:0">
+      <li><a href="../index.html">Home</a></li>
+          <li aria-hidden="true">›</li>
+          <li><span aria-current="page">Produkte</span></li>
+        </ol>
+      </nav>
+
+      <header style="margin-bottom:24px">
+        <h1 class="h2">TruTool Produktkategorien</h1>
+        <p class="lead">Wählen Sie eine Hauptkategorie, um passende Werkzeuge für Ihr Vorhaben zu finden.</p>
+      </header>
+
+      <!-- Hauptkategorien Cards -->
+      <section aria-labelledby="main-categories-title" class="category-cards" data-main-categories>
+        <h2 id="main-categories-title" class="hidden-visually">Hauptkategorien</h2>
+        
+        <div class="category-card is-active" data-main-category="all" role="button" tabindex="0">
+          <div class="category-card-icon"></div>
+          <div class="category-card-count" data-count="all">0</div>
+          <h3 class="category-card-title">Alle Werkzeuge</h3>
+          <p class="category-card-description">Komplette Übersicht aller verfügbaren TruTool Elektro- und Akkuwerkzeuge</p>
+        </div>
+        
+        <div class="category-card" data-main-category="trennen" role="button" tabindex="0">
+          <div class="category-card-icon"></div>
+          <div class="category-card-count" data-count="trennen">0</div>
+          <h3 class="category-card-title">Trennen</h3>
+          <p class="category-card-description">Schlitzscheren, Scheren, Nibbler und Profilnibbler für präzise Schnitte</p>
+        </div>
+        
+        <div class="category-card" data-main-category="verbinden" role="button" tabindex="0">
+          <div class="category-card-icon"></div>
+          <div class="category-card-count" data-count="verbinden">0</div>
+          <h3 class="category-card-title">Verbinden</h3>
+          <p class="category-card-description">Falzschließer und Fügepressen für dauerhafte Verbindungen</p>
+        </div>
+        
+        <div class="category-card" data-main-category="kantenformen" role="button" tabindex="0">
+          <div class="category-card-icon"></div>
+          <div class="category-card-count" data-count="kantenformen">0</div>
+          <h3 class="category-card-title">Kantenformen</h3>
+          <p class="category-card-description">Schweißkantenformer und Kantenfräsgeräte für Oberflächenbearbeitung</p>
+        </div>
+        
+        <div class="category-card" data-main-category="spezial" role="button" tabindex="0">
+          <div class="category-card-icon"></div>
+          <div class="category-card-count" data-count="spezial">0</div>
+          <h3 class="category-card-title">Spezialmaschinen</h3>
+          <p class="category-card-description">Auflageleistenreiniger, Teileseparatoren, Paneelsägen und Tube Cutter</p>
+        </div>
+      </section>
+
+      <hr class="section-separator">
+
+      <!-- Sub-Filter für detaillierte Kategorien -->
+      <div class="sub-filters" data-sub-filters>
+        <div class="sub-filters-title">Detailfilter:</div>
+        <div class="sub-filters-grid">
+          <button class="btn btn-outline is-active" data-filter="all" aria-pressed="true">Alle (<span data-filter-results>0</span>)</button>
+          <!-- Trennen -->
+          <button class="btn btn-outline" data-filter="c" data-main="trennen">Schlitzscheren</button>
+          <button class="btn btn-outline" data-filter="s" data-main="trennen">Scheren</button>
+          <button class="btn btn-outline" data-filter="n" data-main="trennen">Nibbler</button>
+          <button class="btn btn-outline" data-filter="pn" data-main="trennen">Profilnibbler</button>
+          <!-- Verbinden -->
+          <button class="btn btn-outline" data-filter="f" data-main="verbinden">Falzschließer</button>
+          <button class="btn btn-outline" data-filter="tf" data-main="verbinden">Fügepressen</button>
+          <!-- Kantenformen -->
+          <button class="btn btn-outline" data-filter="tkf" data-main="kantenformen">Schweißkantenformer</button>
+          <button class="btn btn-outline" data-filter="tka" data-main="kantenformen">Kantenfräsgeräte</button>
+          <!-- Spezial -->
+          <button class="btn btn-outline" data-filter="tsc" data-main="spezial">Auflageleisten‑Reiniger</button>
+          <button class="btn btn-outline" data-filter="ps" data-main="spezial">Teileseparator</button>
+          <button class="btn btn-outline" data-filter="tpc" data-main="spezial">Paneelsägen</button>
+          <button class="btn btn-outline" data-filter="tc" data-main="spezial">Tube Cutter</button>
+        </div>
+      </div>
+
+      <section aria-labelledby="grid-title" class="section" style="padding-top:12px">
+        <h2 id="grid-title" class="h3 hidden-visually">Produkte</h2>
+        <div id="product-grid" class="grid grid-3" style="margin-top:12px">
+          
+          <!-- Schlitzscheren (C) -->
+          <article class="card" data-category="c" data-main-category="trennen"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool C 160 (12V)</h3><p class="card-muted">Leichte Schlitzschere für dünne Bleche, hohe Schnittqualität.</p><a class="btn btn-outline" href="trutool-c-160.html">Details</a></article>
+          <article class="card" data-category="c" data-main-category="trennen"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool C 160 Spanabtrenner (12V)</h3><p class="card-muted">Sichere Spantrennung für Innenausschnitte und Ausklinkungen.</p><a class="btn btn-outline" href="trutool-c-160.html">Details</a></article>
+          <article class="card" data-category="c" data-main-category="trennen"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool C 200 (18V)</h3><p class="card-muted">Mehr Leistung für stärkere Bleche, akkubetrieben.</p><a class="btn btn-outline" href="trutool-c-200.html">Details</a></article>
+          <article class="card" data-category="c" data-main-category="trennen"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool C 250 Spanabtrenner</h3><p class="card-muted">Hohe Geschwindigkeit, präzise Kanten, netzbetrieben.</p><a class="btn btn-outline" href="trutool-c-250.html">Details</a></article>
+
+          <!-- Scheren (S) -->
+          <article class="card" data-category="s"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool S 114 (12V)</h3><p class="card-muted">Radienfähig, freie Sicht auf Schnittlinie.</p><a class="btn btn-outline" href="trutool-s-114.html">Details</a></article>
+          <article class="card" data-category="s"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool S 160 (12V)</h3><p class="card-muted">Feine Bleche ohne Verzug trennen.</p><a class="btn btn-outline" href="trutool-s-160.html">Details</a></article>
+          <article class="card" data-category="s"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool S 250 (18V)</h3><p class="card-muted">Schnell und präzise für Standardanwendungen.</p><a class="btn btn-outline" href="trutool-s-250.html">Details</a></article>
+          <article class="card" data-category="s"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool S 450</h3><p class="card-muted">Leistungsstarke Schere bis 4,5 mm.</p><a class="btn btn-outline" href="trutool-s-450.html">Details</a></article>
+
+          <!-- Nibbler (N) -->
+          <article class="card" data-category="n"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool N 160 (12V)</h3><p class="card-muted">Wendiger Nibbler für enge Radien.</p><a class="btn btn-outline" href="trutool-n-160.html">Details</a></article>
+          <article class="card" data-category="n"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool N 200</h3><p class="card-muted">Universell bis 2,0 mm Stahl.</p><a class="btn btn-outline" href="trutool-n-200.html">Details</a></article>
+          <article class="card" data-category="n"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool N 350</h3><p class="card-muted">Robust für dickere Bleche.</p><a class="btn btn-outline" href="trutool-n-350.html">Details</a></article>
+          <article class="card" data-category="n"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool N 500</h3><p class="card-muted">Hohe Profilgängigkeit, kraftvoll.</p><a class="btn btn-outline" href="trutool-n-500.html">Details</a></article>
+          <article class="card" data-category="n"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool N 700</h3><p class="card-muted">Trennen bis 7,0 mm Stahl.</p><a class="btn btn-outline" href="trutool-n-700.html">Details</a></article>
+          <article class="card" data-category="n"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool N 1000</h3><p class="card-muted">Schwereinsätze bis 10 mm, rückbaufreundlich.</p><a class="btn btn-outline" href="trutool-n-1000.html">Details</a></article>
+
+          <!-- Profilnibbler (PN) & Verlängerung -->
+          <article class="card" data-category="pn"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool PN 200</h3><p class="card-muted">Verzugsfrei an Profilen, hohe Wendigkeit.</p><a class="btn btn-outline" href="trutool-pn-200.html">Details</a></article>
+          <article class="card" data-category="pn"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool PN 201</h3><p class="card-muted">Für größere Profilhöhen optimiert.</p><a class="btn btn-outline" href="trutool-pn-201.html">Details</a></article>
+
+          <!-- Paneelsägen (TPC) -->
+          <article class="card" data-category="tpc"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TPC 165</h3><p class="card-muted">Saubere Innenausschnitte in Sandwich-Paneelen.</p><a class="btn btn-outline" href="trutool-tpc-165.html">Details</a></article>
+
+          <!-- Falzschließer (F) -->
+          <article class="card" data-category="f"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool F 125</h3><p class="card-muted">Für Steh- und Winkelfalze.</p><a class="btn btn-outline" href="trutool-f-125.html">Details</a></article>
+          <article class="card" data-category="f"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool F 140</h3><p class="card-muted">Pittsburghfalze, automatische Anpassung.</p><a class="btn btn-outline" href="trutool-f-140.html">Details</a></article>
+          <article class="card" data-category="f"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool F 300</h3><p class="card-muted">Dichte Kanäle direkt am Montageplatz.</p><a class="btn btn-outline" href="trutool-f-300.html">Details</a></article>
+          <article class="card" data-category="f"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool F 301</h3><p class="card-muted">Konstantes Falzergebnis, vibrationsarm.</p><a class="btn btn-outline" href="trutool-f-301.html">Details</a></article>
+
+          <!-- Fügepresse (TF) -->
+          <article class="card" data-category="tf"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TF 350</h3><p class="card-muted">Korrosionsbeständige Fügepunkte ohne Nieten.</p><a class="btn btn-outline" href="trutool-tf-350.html">Details</a></article>
+
+          <!-- Kantenfräsgeräte (TKA) -->
+          <article class="card" data-category="tka"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TKA 700</h3><p class="card-muted">Fasen und Rundungen an Sichtkanten.</p><a class="btn btn-outline" href="trutool-tka-700.html">Details</a></article>
+          <article class="card" data-category="tka"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TKA 1500</h3><p class="card-muted">Lange Fasen mit hoher Oberflächenqualität.</p><a class="btn btn-outline" href="trutool-tka-1500.html">Details</a></article>
+
+          <!-- Schweißkantenformer (TKF) -->
+          <article class="card" data-category="tkf"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TKF 700</h3><p class="card-muted">Schweißnahtvorbereitung an Konturen.</p><a class="btn btn-outline" href="trutool-tkf-700.html">Details</a></article>
+          <article class="card" data-category="tkf"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TKF 1500</h3><p class="card-muted">Konstante Fasenqualität bis 15 mm.</p><a class="btn btn-outline" href="trutool-tkf-1500.html">Details</a></article>
+          <article class="card" data-category="tkf"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TKF 1500 (2‑Gang)</h3><p class="card-muted">Zwei Gänge für Materialvielfalt.</p><a class="btn btn-outline" href="trutool-tkf-1500.html">Details</a></article>
+
+          <!-- PS, TSC, TC -->
+          <article class="card" data-category="ps"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool PS 100</h3><p class="card-muted">Kleinteile sauber aus Restgittern trennen.</p><a class="btn btn-outline" href="trutool-ps-100.html">Details</a></article>
+          <article class="card" data-category="tsc"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TSC 100</h3><p class="card-muted">Auflageleisten schnell reinigen.</p><a class="btn btn-outline" href="trutool-tsc-100.html">Details</a></article>
+          <article class="card" data-category="tsc"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TSC 200</h3><p class="card-muted">Mehr Tempo auf langen Auflageleisten.</p><a class="btn btn-outline" href="trutool-tsc-200.html">Details</a></article>
+          <article class="card" data-category="tc"><div class="product-thumb" aria-hidden="true">Bild</div><h3 class="card-title">TruTool TC 200 (18V)</h3><p class="card-muted">Kunststoffrohre sauber schneiden.</p><a class="btn btn-outline" href="trutool-tc-200.html">Details</a></article>
+
+        </div>
+      </section>
+
+      <aside class="section" style="padding-top:24px">
+        <div class="card">
+          <h2 class="h3">Beratung & Angebotsservice</h2>
+          <p class="card-muted">Wir empfehlen das passende Modell und liefern zügig – inklusive Zubehör und Ersatzteilen.</p>
+          <a class="btn btn-primary" href="../kontakt.html">Beratung anfordern</a>
+        </div>
+      </aside>
+    </div>
+  </main>
+  <footer class="footer"><div class="container">&copy; Thomas Burk GmbH</div></footer>
+  <script src="../assets/burk.js" defer></script>
+  <script>
+  (function(){
+    const header=document.querySelector('.header');
+    const toggle=document.querySelector('.menu-toggle');
+    if(toggle){toggle.addEventListener('click',()=>{
+      const open=header.getAttribute('data-nav-open')==='true';
+      header.setAttribute('data-nav-open', String(!open));
+      toggle.setAttribute('aria-expanded', String(!open));
+    });}
+
+    // Enhanced product category filtering
+    const mainCategories = document.querySelectorAll('[data-main-category]');
+    const subFilters = document.querySelectorAll('[data-filter]');
+    const products = document.querySelectorAll('#product-grid [data-category]');
+    const resultCounter = document.querySelector('[data-filter-results]');
+    
+    // Category mappings
+    const categoryMapping = {
+      'trennen': ['c', 's', 'n', 'pn'],
+      'verbinden': ['f', 'tf'],
+      'kantenformen': ['tkf', 'tka'],
+      'spezial': ['ps', 'tsc', 'tpc', 'tc']
+    };
+
+    // Add missing data-main-category attributes dynamically
+    products.forEach(product => {
+      const category = product.dataset.category;
+      if (!product.dataset.mainCategory) {
+        for (const [mainCat, subCats] of Object.entries(categoryMapping)) {
+          if (subCats.includes(category)) {
+            product.dataset.mainCategory = mainCat;
+            break;
+          }
+        }
+      }
+    });
+
+    // Update counts for main categories
+    function updateCounts() {
+      const allCount = products.length;
+      document.querySelector('[data-count="all"]').textContent = allCount;
+      
+      Object.keys(categoryMapping).forEach(mainCat => {
+        const count = Array.from(products).filter(p => 
+          categoryMapping[mainCat].includes(p.dataset.category)
+        ).length;
+        const countEl = document.querySelector(`[data-count="${mainCat}"]`);
+        if (countEl) countEl.textContent = count;
+      });
+    }
+
+    // Filter products by main category
+    function filterByMainCategory(mainCat) {
+      if (mainCat === 'all') {
+        products.forEach(p => p.style.display = '');
+        resultCounter.textContent = products.length;
+        showAllSubFilters();
+      } else {
+        const allowedCategories = categoryMapping[mainCat] || [];
+        let visibleCount = 0;
+        
+        products.forEach(p => {
+          if (allowedCategories.includes(p.dataset.category)) {
+            p.style.display = '';
+            visibleCount++;
+          } else {
+            p.style.display = 'none';
+          }
+        });
+        
+        resultCounter.textContent = visibleCount;
+        showSubFiltersForCategory(mainCat);
+      }
+    }
+
+    // Show/hide sub-filters based on main category
+    function showAllSubFilters() {
+      subFilters.forEach(btn => {
+        if (btn.dataset.filter !== 'all') {
+          btn.style.display = '';
+        }
+      });
+    }
+    
+    function showSubFiltersForCategory(mainCat) {
+      const allowedCategories = categoryMapping[mainCat] || [];
+      
+      subFilters.forEach(btn => {
+        if (btn.dataset.filter === 'all') return;
+        
+        if (allowedCategories.includes(btn.dataset.filter)) {
+          btn.style.display = '';
+        } else {
+          btn.style.display = 'none';
+        }
+      });
+    }
+
+    // Main category click handlers
+    mainCategories.forEach(card => {
+      card.addEventListener('click', () => {
+        // Update active states
+        mainCategories.forEach(c => c.classList.remove('is-active'));
+        card.classList.add('is-active');
+        
+        // Reset sub-filter to "all"
+        subFilters.forEach(btn => {
+          btn.classList.remove('is-active');
+          btn.setAttribute('aria-pressed', 'false');
+        });
+        const allBtn = document.querySelector('[data-filter="all"]');
+        if (allBtn) {
+          allBtn.classList.add('is-active');
+          allBtn.setAttribute('aria-pressed', 'true');
+        }
+        
+        // Filter products
+        const category = card.dataset.mainCategory;
+        filterByMainCategory(category);
+      });
+    });
+
+    // Sub-filter click handlers (existing logic enhanced)
+    subFilters.forEach(btn => {
+      btn.addEventListener('click', () => {
+        subFilters.forEach(b => {
+          b.classList.remove('is-active');
+          b.setAttribute('aria-pressed', 'false');
+        });
+        btn.classList.add('is-active');
+        btn.setAttribute('aria-pressed', 'true');
+
+        const filter = btn.dataset.filter;
+        let visibleCount = 0;
+
+        products.forEach(product => {
+          if (filter === 'all' || product.dataset.category === filter) {
+            product.style.display = '';
+            visibleCount++;
+          } else {
+            product.style.display = 'none';
+          }
+        });
+
+        resultCounter.textContent = visibleCount;
+
+        // Update main category selection based on sub-filter
+        if (filter !== 'all') {
+          let targetMainCategory = 'all';
+          for (const [mainCat, subCats] of Object.entries(categoryMapping)) {
+            if (subCats.includes(filter)) {
+              targetMainCategory = mainCat;
+              break;
+            }
+          }
+          
+          mainCategories.forEach(c => c.classList.remove('is-active'));
+          const targetCard = document.querySelector(`[data-main-category="${targetMainCategory}"]`);
+          if (targetCard) targetCard.classList.add('is-active');
+        }
+      });
+    });
+
+    // Keyboard navigation for main categories
+    mainCategories.forEach(card => {
+      card.addEventListener('keydown', (e) => {
+        if (e.key === 'Enter' || e.key === ' ') {
+          e.preventDefault();
+          card.click();
+        }
+      });
+    });
+
+    // Initialize
+    updateCounts();
+    
+  })();
+  </script>
+</body>
+</html>

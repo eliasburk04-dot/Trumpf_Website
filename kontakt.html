@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="de" class="no-js">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5, viewport-fit=cover">
+  <title>Kontakt – Thomas Burk GmbH</title>
+  <meta name="description" content="Kontakt zur Thomas Burk GmbH: Beratung, Service und Support für TRUMPF Elektrowerkzeuge.">
+  <meta name="mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="theme-color" content="#0f172a">
+  <link rel="manifest" href="./assets/manifest/site.webmanifest">
+  <link rel="stylesheet" href="./assets/burk.css">
+  <script src="./assets/burk.js" defer></script>
+  <script>document.documentElement.classList.remove('no-js');document.documentElement.classList.add('js');</script>
+</head>
+<body>
+  <a class="skip-link" href="#main">Zum Inhalt springen</a>
+  <header class="header"><div class="container header-inner">
+  <a href="index.html" class="brand" aria-label="Startseite"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Thomas Burk GmbH</span></a>
+  <button class="menu-toggle" aria-label="Menü öffnen" aria-controls="primary-nav" aria-expanded="false"><span class="bar" aria-hidden="true"></span></button>
+  <nav id="primary-nav" class="nav" aria-label="Hauptnavigation"><a href="produkte/index.html">Produkte</a><a href="index.html#services">Leistungen</a><a href="index.html#trutool">TruTool</a><a href="kontakt.html" aria-current="page">Kontakt</a></nav>
+  </div></header>
+  <main id="main" class="section">
+    <div class="container">
+      <header style="margin-bottom:16px"><h1 class="h2">Kontakt</h1><p class="lead">Schreiben Sie uns. Wir melden uns werktags in 24 Stunden.</p></header>
+      <div class="card" style="display:grid;grid-template-columns:1.2fr .8fr;gap:24px">
+  <form id="contactFormKontakt" action="contact_handler.php" method="post" aria-label="Kontaktformular">
+          <input type="hidden" name="subject" value="Kontakt">
+          <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-10000px;opacity:0;height:0;width:0">
+          <div class="grid" style="grid-template-columns:1fr 1fr">
+            <label class="field"><span>Name *</span><input type="text" class="input" name="name" required minlength="2" maxlength="100" autocomplete="name" inputmode="text" autocapitalize="words"><small class="error">Bitte geben Sie Ihren Namen an.</small></label>
+            <label class="field"><span>Unternehmen</span><input class="input" name="company"></label>
+          </div>
+          <div class="grid" style="grid-template-columns:1fr 1fr">
+            <label class="field"><span>E‑Mail *</span><input type="email" class="input" name="email" required maxlength="254" autocomplete="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" inputmode="email" autocapitalize="none" spellcheck="false"><small class="error">Gültige E‑Mail erforderlich.</small></label>
+            <label class="field"><span>Telefon</span><input type="tel" class="input" name="phone" autocomplete="tel" inputmode="tel" pattern="^[0-9+()\-\/. ]{3,30}$" maxlength="30"></label>
+          </div>
+          <label class="field"><span>Ihr Anliegen *</span><textarea class="input" name="message" rows="6" required minlength="10" maxlength="5000" autocapitalize="sentences" spellcheck="true"></textarea><small class="error">Bitte beschreiben Sie Ihr Anliegen kurz.</small></label>
+          <label style="display:flex;gap:.6rem;align-items:flex-start;margin:.6rem 0"><input type="checkbox" required aria-describedby="privacy-help"><span>Ich stimme der Verarbeitung meiner Daten zu.</span></label>
+          <small id="privacy-help" class="help">Hinweis: Wir nutzen Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.</small>
+          <button class="btn btn-primary">Nachricht senden</button>
+        </form>
+        <aside>
+          <div class="card">
+            <h2 class="card-title">Thomas Burk GmbH</h2>
+            <p class="card-muted">Friedrich-Naumann-Str. 11<br>71636 Ludwigsburg</p>
+            <p class="card-muted">Mo–Fr 7–17 Uhr</p>
+            <a class="btn btn-outline" href="tel:+497141921912">+49 (0) 7141 921 912</a>
+            <div style="margin-top:.5rem"><a href="mailto:burk-trutools@web.de">burk-trutools@web.de</a></div>
+          </div>
+        </aside>
+  </main>
+  <footer class="footer"><div class="container">&copy; Thomas Burk GmbH</div></footer>
+  <script>
+  (function(){
+    const header=document.querySelector('.header');
+    const toggle=document.querySelector('.menu-toggle');
+    if(toggle){toggle.addEventListener('click',()=>{
+      const open=header.getAttribute('data-nav-open')==='true';
+      header.setAttribute('data-nav-open', String(!open));
+      toggle.setAttribute('aria-expanded', String(!open));
+    });}
+  })();
+  // Show server post-redirect messages (?ok=1 or ?err=...)
+  (function(){
+    const params = new URLSearchParams(window.location.search);
+    if(params.has('ok')){
+      const div=document.createElement('div');
+  div.style.cssText='position:fixed;top:0;left:0;right:0;background:#10b981;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
+      div.textContent='✅ Ihre Nachricht wurde erfolgreich gesendet.';
+      document.body.appendChild(div);
+      setTimeout(()=>div.remove(),4000);
+    }
+    if(params.has('err')){
+      const msg=params.get('err')||'Fehler beim Senden.';
+      const div=document.createElement('div');
+  div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
+      div.textContent='❌ ' + decodeURIComponent(msg);
+      document.body.appendChild(div);
+      setTimeout(()=>div.remove(),6000);
+    }
+  })();
+
+  // AJAX submit to prevent navigation
+  (function(){
+    const form = document.getElementById('contactFormKontakt');
+    if(!form) return;
+    form.addEventListener('submit', async (e)=>{
+      e.preventDefault();
+      const data = new FormData(form);
+      try{
+        const res = await fetch(form.action, { method: 'POST', body: data, headers: { 'Accept':'application/json', 'X-Requested-With':'XMLHttpRequest' } });
+        const json = await res.json().catch(()=>({ success:false, error:'Unerwartete Antwort' }));
+        if(res.ok && json.success){
+          const div=document.createElement('div');
+          div.style.cssText='position:fixed;top:0;left:0;right:0;background:#10b981;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
+          div.textContent='✅ Ihre Nachricht wurde erfolgreich gesendet.';
+          document.body.appendChild(div);
+          setTimeout(()=>div.remove(),4000);
+          form.reset();
+        }else{
+          const msg = (json && json.error) ? json.error : 'Fehler beim Senden.';
+          const div=document.createElement('div');
+          div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
+          div.textContent='❌ ' + msg;
+          document.body.appendChild(div);
+          setTimeout(()=>div.remove(),6000);
+        }
+      }catch(err){
+        const div=document.createElement('div');
+        div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:.75rem 1rem;text-align:center;z-index:1000';
+        div.textContent='❌ Netzwerkfehler beim Senden.';
+        document.body.appendChild(div);
+        setTimeout(()=>div.remove(),6000);
+      }
+    });
+  })();
+  </script>
+</body>
+</html>
