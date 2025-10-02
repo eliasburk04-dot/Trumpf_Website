@@ -16,42 +16,163 @@
 </head>
 <body>
   <a class="skip-link" href="#main">Zum Inhalt springen</a>
-  <header class="header"><div class="container header-inner">
-  <a href="index.html" class="brand" aria-label="Startseite"><span class="brand-mark" aria-hidden="true"></span><span class="brand-name">Thomas Burk GmbH</span></a>
-  <button class="menu-toggle" aria-label="Menü öffnen" aria-controls="primary-nav" aria-expanded="false"><span class="bar" aria-hidden="true"></span></button>
-  <nav id="primary-nav" class="nav" aria-label="Hauptnavigation"><a href="produkte/index.html">Produkte</a><a href="index.html#services">Leistungen</a><a href="index.html#trutool">TruTool</a><a href="kontakt.html" aria-current="page">Kontakt</a></nav>
-  </div></header>
+  <header class="header">
+    <div class="container header-inner">
+      <a href="index.html" class="brand" aria-label="Startseite">
+        <span class="brand-mark" aria-hidden="true"></span>
+        <span class="brand-name">Thomas Burk GmbH</span>
+      </a>
+      <button class="menu-toggle" aria-label="Menü öffnen" aria-controls="primary-nav" aria-expanded="false"><span class="bar" aria-hidden="true"></span></button>
+      <nav id="primary-nav" class="nav" aria-label="Hauptnavigation">
+        <a href="produkte/index.html">Produkte</a>
+        <a href="index.html#services">Leistungen</a>
+        <a href="index.html#trutool">TruTool</a>
+        <a href="index.html#aktionen">Aktionen</a>
+        <a href="kontakt.html" aria-current="page">Kontakt</a>
+      </nav>
+    </div>
+  </header>
+
   <main id="main" class="section">
     <div class="container">
-      <header style="margin-bottom:16px"><h1 class="h2">Kontakt</h1><p class="lead">Schreiben Sie uns. Wir melden uns werktags in 24 Stunden.</p></header>
-      <div class="card" style="display:grid;grid-template-columns:1.2fr .8fr;gap:24px">
-  <form id="contactFormKontakt" action="contact_handler.php" method="post" aria-label="Kontaktformular">
-          <input type="hidden" name="subject" value="Kontakt">
-          <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-10000px;opacity:0;height:0;width:0">
-          <div class="grid" style="grid-template-columns:1fr 1fr">
-            <label class="field"><span>Name *</span><input type="text" class="input" name="name" required minlength="2" maxlength="100" autocomplete="name" inputmode="text" autocapitalize="words"><small class="error">Bitte geben Sie Ihren Namen an.</small></label>
-            <label class="field"><span>Unternehmen</span><input class="input" name="company"></label>
+      <header style="text-align:center;margin-bottom:var(--space-10)">
+        <span class="hero-badge" style="margin-inline:auto">Schnell & Zuverlässig</span>
+        <h1 class="h1" style="margin-top:var(--space-4);margin-bottom:var(--space-3)">Kontakt & Beratung</h1>
+        <p class="section-subtitle" style="max-width:70ch;margin-inline:auto">Wir melden uns werktags innerhalb von 24 Stunden. Unser Expertenteam berät Sie gerne zu allen Fragen rund um TRUMPF TruTool Werkzeuge.</p>
+      </header>
+
+      <div class="contact-enhanced" style="display:grid;grid-template-columns:1.2fr .8fr;gap:0;overflow:hidden">
+        <div style="padding:var(--space-8)">
+          <h2 class="h2" style="margin-bottom:var(--space-3)">Ihre Anfrage</h2>
+          <p class="card-muted" style="margin-bottom:var(--space-6)">Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen.</p>
+          
+          <form id="contactFormKontakt" action="contact_handler.php" method="post" aria-label="Kontaktformular">
+            <input type="hidden" name="subject" value="Kontakt & Beratung">
+            <input type="text" name="website" autocomplete="off" tabindex="-1" aria-hidden="true" style="position:absolute;left:-10000px;opacity:0;height:0;width:0">
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <label class="field"><span>Name *</span><input type="text" class="input" name="name" required minlength="2" maxlength="100" autocomplete="name" inputmode="text" autocapitalize="words" placeholder="Ihr vollständiger Name"><small class="error">Bitte geben Sie Ihren Namen an.</small></label>
+              <label class="field"><span>Unternehmen</span><input class="input" name="company" placeholder="Firmenname (optional)"></label>
+            </div>
+            <div class="grid" style="grid-template-columns:1fr 1fr;gap:var(--space-4)">
+              <label class="field"><span>E‑Mail *</span><input type="email" class="input" name="email" required maxlength="254" autocomplete="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" inputmode="email" autocapitalize="none" spellcheck="false" placeholder="ihre@email.de"><small class="error">Gültige E‑Mail erforderlich.</small></label>
+              <label class="field"><span>Telefon</span><input type="tel" class="input" name="phone" autocomplete="tel" inputmode="tel" pattern="^[0-9+()\-\/. ]{3,30}$" maxlength="30" placeholder="+49 (0) ..."></label>
+            </div>
+            <label class="field"><span>Ihr Anliegen *</span><textarea class="input" name="message" rows="5" required minlength="10" maxlength="5000" autocapitalize="sentences" spellcheck="true" placeholder="Beschreiben Sie Ihr Anliegen oder Ihre Frage..."></textarea><small class="error">Bitte beschreiben Sie Ihr Anliegen kurz.</small></label>
+            <div style="background:hsl(var(--primary-50));border-left:3px solid hsl(var(--primary-500));padding:var(--space-3);border-radius:var(--radius-md);margin:var(--space-4) 0">
+              <div style="font-size:var(--text-sm);color:hsl(var(--primary-700));line-height:1.5">
+                <strong>Wie können wir Ihnen helfen?</strong><br>
+                Produktberatung • Wartung & Reparatur • Ersatzteile • Technischer Support
+              </div>
+            </div>
+            <label style="display:flex;gap:.6rem;align-items:flex-start;margin:.6rem 0;cursor:pointer"><input type="checkbox" required aria-describedby="privacy-help" style="margin-top:3px"><span style="font-size:var(--text-sm)">Ich stimme der Verarbeitung meiner Daten gemäß <a href="datenschutz.html" style="color:hsl(var(--primary-600));text-decoration:underline">Datenschutzerklärung</a> zu. *</span></label>
+            <small id="privacy-help" class="help">Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet und nicht an Dritte weitergegeben.</small>
+            <div style="margin-top:var(--space-5)"><button class="cta-primary" style="width:100%;justify-content:center">Anfrage absenden</button></div>
+          </form>
+        </div>
+
+        <aside class="contact-info-panel">
+          <h3 style="color:white;margin-bottom:var(--space-4)">Direkter Kontakt</h3>
+          <p style="color:rgba(255,255,255,0.9);font-size:var(--text-sm);margin-bottom:var(--space-6);line-height:1.6">
+            Unser Expertenteam berät Sie gerne bei der Auswahl des richtigen TruTool Werkzeugs für Ihre Anforderungen.
+          </p>
+          
+          <div style="background:rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5)">
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.8);margin-bottom:var(--space-2)">Bürozeiten</div>
+            <div style="font-weight:600;font-size:var(--text-base)">Montag – Freitag</div>
+            <div style="font-size:var(--text-lg);font-weight:700">7:00 – 17:00 Uhr</div>
           </div>
-          <div class="grid" style="grid-template-columns:1fr 1fr">
-            <label class="field"><span>E‑Mail *</span><input type="email" class="input" name="email" required maxlength="254" autocomplete="email" pattern="^[^\s@]+@[^\s@]+\.[^\s@]{2,}$" inputmode="email" autocapitalize="none" spellcheck="false"><small class="error">Gültige E‑Mail erforderlich.</small></label>
-            <label class="field"><span>Telefon</span><input type="tel" class="input" name="phone" autocomplete="tel" inputmode="tel" pattern="^[0-9+()\-\/. ]{3,30}$" maxlength="30"></label>
+          
+          <div class="contact-method" style="flex-direction:column;align-items:flex-start;background:rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-3)">
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.8);margin-bottom:var(--space-1)">Telefon</div>
+            <a style="color:white;text-decoration:none;font-weight:700;font-size:var(--text-lg)" href="tel:+497141921912">+49 (0) 7141 921 912</a>
           </div>
-          <label class="field"><span>Ihr Anliegen *</span><textarea class="input" name="message" rows="6" required minlength="10" maxlength="5000" autocapitalize="sentences" spellcheck="true"></textarea><small class="error">Bitte beschreiben Sie Ihr Anliegen kurz.</small></label>
-          <label style="display:flex;gap:.6rem;align-items:flex-start;margin:.6rem 0"><input type="checkbox" required aria-describedby="privacy-help"><span>Ich stimme der Verarbeitung meiner Daten zu.</span></label>
-          <small id="privacy-help" class="help">Hinweis: Wir nutzen Ihre Angaben ausschließlich zur Bearbeitung Ihrer Anfrage.</small>
-          <button class="btn btn-primary">Nachricht senden</button>
-        </form>
-        <aside>
-          <div class="card">
-            <h2 class="card-title">Thomas Burk GmbH</h2>
-            <p class="card-muted">Friedrich-Naumann-Str. 11<br>71636 Ludwigsburg</p>
-            <p class="card-muted">Mo–Fr 7–17 Uhr</p>
-            <a class="btn btn-outline" href="tel:+497141921912">+49 (0) 7141 921 912</a>
-            <div style="margin-top:.5rem"><a href="mailto:burk-trutools@web.de">burk-trutools@web.de</a></div>
+          
+          <div class="contact-method" style="flex-direction:column;align-items:flex-start;background:rgba(255,255,255,0.1);border-radius:var(--radius-lg);padding:var(--space-4);margin-bottom:var(--space-5)">
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.8);margin-bottom:var(--space-1)">E-Mail</div>
+            <a style="color:white;text-decoration:none;font-weight:600;font-size:var(--text-base);word-break:break-all" href="mailto:burk-trutools@web.de">burk-trutools@web.de</a>
+          </div>
+          
+          <div style="border-top:1px solid rgba(255,255,255,0.2);padding-top:var(--space-4)">
+            <div style="font-size:var(--text-sm);font-weight:600;margin-bottom:var(--space-2)">Thomas Burk GmbH</div>
+            <div style="font-size:var(--text-sm);color:rgba(255,255,255,0.9);line-height:1.6">
+              Friedrich-Naumann-Str. 11<br>
+              71636 Ludwigsburg
+            </div>
+          </div>
+          
+          <div style="margin-top:var(--space-5);padding:var(--space-3);background:rgba(255,255,255,0.1);border-radius:var(--radius-md);border-left:3px solid rgba(255,255,255,0.5)">
+            <div style="font-size:var(--text-xs);color:rgba(255,255,255,0.9)">
+              ✓ Antwort innerhalb 24h (werktags)<br>
+              ✓ Kostenlose Erstberatung<br>
+              ✓ Individuelle Lösungen
+            </div>
           </div>
         </aside>
+      </div>
+    </div>
   </main>
-  <footer class="footer"><div class="container">&copy; Thomas Burk GmbH</div></footer>
+
+  <footer class="footer" role="contentinfo">
+    <div class="container">
+      <div class="footer-grid">
+        <div>
+          <div class="brand" aria-label="Thomas Burk GmbH" style="margin-bottom:var(--space-3)">
+            <span class="brand-name" style="font-size:var(--text-lg)">Thomas Burk GmbH</span>
+          </div>
+          <p style="color:hsl(var(--neutral-600));line-height:1.6;margin-bottom:var(--space-4);max-width:35ch">
+            Ihr zuverlässiger Partner für TRUMPF TruTool Elektrowerkzeuge in Ludwigsburg und Umgebung.
+          </p>
+          <div style="display:flex;gap:var(--space-2);margin-top:var(--space-3)">
+            <span style="display:inline-block;padding:var(--space-1) var(--space-2);background:hsl(var(--primary-50));color:hsl(var(--primary-700));border-radius:var(--radius-sm);font-size:var(--text-xs);font-weight:600">Offizieller TRUMPF Partner</span>
+          </div>
+        </div>
+        
+        <div>
+          <strong style="display:block;margin-bottom:var(--space-3);color:hsl(var(--neutral-900))">Leistungen</strong>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <a href="index.html#services" style="color:hsl(var(--neutral-600));text-decoration:none;font-size:var(--text-sm)">Vertrieb & Verkauf</a>
+            <a href="index.html#services" style="color:hsl(var(--neutral-600));text-decoration:none;font-size:var(--text-sm)">Wartung & Service</a>
+            <a href="index.html#services" style="color:hsl(var(--neutral-600));text-decoration:none;font-size:var(--text-sm)">Reparatur & Instandsetzung</a>
+            <a href="produkte/index.html" style="color:hsl(var(--neutral-600));text-decoration:none;font-size:var(--text-sm)">Produktübersicht</a>
+          </div>
+        </div>
+        
+        <div>
+          <strong style="display:block;margin-bottom:var(--space-3);color:hsl(var(--neutral-900))">Kontakt</strong>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2);font-size:var(--text-sm)">
+            <div>
+              <div style="color:hsl(var(--neutral-500));font-size:var(--text-xs);margin-bottom:2px">Telefon</div>
+              <a href="tel:+497141921912" style="color:hsl(var(--primary-600));text-decoration:none;font-weight:600">+49 (0) 7141 921 912</a>
+            </div>
+            <div>
+              <div style="color:hsl(var(--neutral-500));font-size:var(--text-xs);margin-bottom:2px">E-Mail</div>
+              <a href="mailto:burk-trutools@web.de" style="color:hsl(var(--primary-600));text-decoration:none">burk-trutools@web.de</a>
+            </div>
+            <div style="margin-top:var(--space-2)">
+              <div style="color:hsl(var(--neutral-700));font-weight:500;margin-bottom:4px">Friedrich-Naumann-Str. 11</div>
+              <div style="color:hsl(var(--neutral-600))">71636 Ludwigsburg</div>
+            </div>
+          </div>
+        </div>
+        
+        <div>
+          <strong style="display:block;margin-bottom:var(--space-3);color:hsl(var(--neutral-900))">Rechtliches</strong>
+          <div style="display:flex;flex-direction:column;gap:var(--space-2)">
+            <a href="impressum.html" style="color:hsl(var(--neutral-600));text-decoration:none;font-size:var(--text-sm)">Impressum</a>
+            <a href="datenschutz.html" style="color:hsl(var(--neutral-600));text-decoration:none;font-size:var(--text-sm)">Datenschutz</a>
+          </div>
+          <div style="margin-top:var(--space-4);padding-top:var(--space-4);border-top:1px solid hsl(var(--neutral-200))">
+            <div style="font-size:var(--text-xs);color:hsl(var(--neutral-500))">Mo–Fr: 7:00–17:00 Uhr</div>
+          </div>
+        </div>
+      </div>
+      
+      <div style="border-top:1px solid hsl(var(--neutral-200));margin-top:var(--space-8);padding-top:var(--space-4);text-align:center">
+        <p style="color:hsl(var(--neutral-600));font-size:var(--text-sm);margin:0">&copy; 2025 Thomas Burk GmbH. Alle Rechte vorbehalten.</p>
+      </div>
+    </div>
+  </footer>
+
   <script>
   (function(){
     const header=document.querySelector('.header');
@@ -62,21 +183,22 @@
       toggle.setAttribute('aria-expanded', String(!open));
     });}
   })();
+
   // Show server post-redirect messages (?ok=1 or ?err=...)
   (function(){
     const params = new URLSearchParams(window.location.search);
     if(params.has('ok')){
       const div=document.createElement('div');
-  div.style.cssText='position:fixed;top:0;left:0;right:0;background:#10b981;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
-      div.textContent='✅ Ihre Nachricht wurde erfolgreich gesendet.';
+      div.style.cssText='position:fixed;top:0;left:0;right:0;background:#10b981;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
+      div.textContent='Ihre Nachricht wurde erfolgreich gesendet.';
       document.body.appendChild(div);
       setTimeout(()=>div.remove(),4000);
     }
     if(params.has('err')){
       const msg=params.get('err')||'Fehler beim Senden.';
       const div=document.createElement('div');
-  div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
-      div.textContent='❌ ' + decodeURIComponent(msg);
+      div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
+      div.textContent='Fehler: ' + decodeURIComponent(msg);
       document.body.appendChild(div);
       setTimeout(()=>div.remove(),6000);
     }
@@ -95,7 +217,7 @@
         if(res.ok && json.success){
           const div=document.createElement('div');
           div.style.cssText='position:fixed;top:0;left:0;right:0;background:#10b981;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
-          div.textContent='✅ Ihre Nachricht wurde erfolgreich gesendet.';
+          div.textContent='Ihre Nachricht wurde erfolgreich gesendet.';
           document.body.appendChild(div);
           setTimeout(()=>div.remove(),4000);
           form.reset();
@@ -103,14 +225,14 @@
           const msg = (json && json.error) ? json.error : 'Fehler beim Senden.';
           const div=document.createElement('div');
           div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:calc(.75rem + env(safe-area-inset-top)) 1rem .75rem 1rem;text-align:center;z-index:1000';
-          div.textContent='❌ ' + msg;
+          div.textContent='Fehler: ' + msg;
           document.body.appendChild(div);
           setTimeout(()=>div.remove(),6000);
         }
       }catch(err){
         const div=document.createElement('div');
         div.style.cssText='position:fixed;top:0;left:0;right:0;background:#dc2626;color:white;padding:.75rem 1rem;text-align:center;z-index:1000';
-        div.textContent='❌ Netzwerkfehler beim Senden.';
+        div.textContent='Netzwerkfehler beim Senden.';
         document.body.appendChild(div);
         setTimeout(()=>div.remove(),6000);
       }

@@ -149,43 +149,43 @@ function create_email_template($data) {
     <body>
         <div class="container">
             <div class="header">
-                <h2>🔧 Neue Kundenanfrage - Thomas Burk GmbH</h2>
+                <h2>Neue Kundenanfrage - Thomas Burk GmbH</h2>
                 <p>Eingang: ' . date('d.m.Y H:i:s') . '</p>
             </div>
             
             <div class="content">
                 <div class="field">
-                    <div class="label">👤 Name:</div>
+                    <div class="label">Name:</div>
                     <div class="value">' . htmlspecialchars($data['name']) . '</div>
                 </div>
                 
                 <div class="field">
-                    <div class="label">🏢 Unternehmen:</div>
+                    <div class="label">Unternehmen:</div>
                     <div class="value">' . (empty($data['company']) ? 'Nicht angegeben' : htmlspecialchars($data['company'])) . '</div>
                 </div>
                 
                 <div class="field">
-                    <div class="label">📧 E-Mail:</div>
+                    <div class="label">E-Mail:</div>
                     <div class="value"><a href="mailto:' . htmlspecialchars($data['email']) . '">' . htmlspecialchars($data['email']) . '</a></div>
                 </div>
                 
                 <div class="field">
-                    <div class="label">📞 Telefon:</div>
+                    <div class="label">Telefon:</div>
                     <div class="value">' . (empty($data['phone']) ? 'Nicht angegeben' : htmlspecialchars($data['phone'])) . '</div>
                 </div>
                 
                 <div class="field">
-                    <div class="label">🎯 Betreff:</div>
+                    <div class="label">Betreff:</div>
                     <div class="value">' . htmlspecialchars($data['subject']) . '</div>
                 </div>
                 
                 <div class="field">
-                    <div class="label">💬 Nachricht:</div>
+                    <div class="label">Nachricht:</div>
                     <div class="value urgent">' . nl2br(htmlspecialchars($data['message'])) . '</div>
                 </div>
                 
                 <div class="field">
-                    <div class="label">🌐 Technische Details:</div>
+                    <div class="label">Technische Details:</div>
                     <div class="value">
                         <strong>IP-Adresse:</strong> ' . htmlspecialchars($data['ip']) . '<br>
                         <strong>User-Agent:</strong> ' . htmlspecialchars($data['user_agent']) . '<br>
@@ -196,7 +196,7 @@ function create_email_template($data) {
             
             <div class="footer">
                 <p>Diese Nachricht wurde über das Kontaktformular der Thomas Burk GmbH Website gesendet.</p>
-                <p>🔧 TruTool Vertriebs-Partner | CNC-Service Ludwigsburg</p>
+                <p>TruTool Vertriebs-Partner | CNC-Service Ludwigsburg</p>
             </div>
         </div>
     </body>

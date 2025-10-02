@@ -33,6 +33,7 @@
       <a href="index.html" aria-current="page">Produkte</a>
       <a href="../index.html#services">Leistungen</a>
       <a href="../index.html#trutool">TruTool</a>
+      <a href="../index.html#aktionen">Aktionen</a>
       <a href="../kontakt.html">Kontakt</a>
     </nav>
   </div></header>
@@ -175,13 +176,6 @@
         </div>
       </section>
 
-      <aside class="section" style="padding-top:24px">
-        <div class="card">
-          <h2 class="h3">Beratung & Angebotsservice</h2>
-          <p class="card-muted">Wir empfehlen das passende Modell und liefern zügig – inklusive Zubehör und Ersatzteilen.</p>
-          <a class="btn btn-primary" href="../kontakt.html">Beratung anfordern</a>
-        </div>
-      </aside>
     </div>
   </main>
   <footer class="footer"><div class="container">&copy; Thomas Burk GmbH</div></footer>
@@ -305,6 +299,17 @@
         // Filter products
         const category = card.dataset.mainCategory;
         filterByMainCategory(category);
+        
+        // Scroll to products section
+        const productGrid = document.querySelector('#product-grid');
+        if (productGrid) {
+          const headerHeight = document.querySelector('.header')?.offsetHeight || 64;
+          const targetPosition = productGrid.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+          window.scrollTo({
+            top: targetPosition,
+            behavior: 'smooth'
+          });
+        }
       });
     });
 
@@ -356,6 +361,25 @@
           e.preventDefault();
           card.click();
         }
+      });
+    });
+    
+    // Also add scroll functionality for sub-filter buttons
+    subFilters.forEach(btn => {
+      const originalClickHandler = btn.onclick;
+      btn.addEventListener('click', () => {
+        // Delay scroll slightly to allow filter animation to complete
+        setTimeout(() => {
+          const productGrid = document.querySelector('#product-grid');
+          if (productGrid && btn.dataset.filter !== 'all') {
+            const headerHeight = document.querySelector('.header')?.offsetHeight || 64;
+            const targetPosition = productGrid.getBoundingClientRect().top + window.pageYOffset - headerHeight - 20;
+            window.scrollTo({
+              top: targetPosition,
+              behavior: 'smooth'
+            });
+          }
+        }, 100);
       });
     });
 
