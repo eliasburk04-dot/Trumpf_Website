@@ -6,10 +6,10 @@ import heroImage from "@assets/generated_images/hero_power_tool_action_shot.png"
 
 interface HeroProps {
   onExploreProducts?: () => void;
-  onLearnMore?: () => void;
+  onContactUs?: () => void;
 }
 
-export default function Hero({ onExploreProducts, onLearnMore }: HeroProps) {
+export default function Hero({ onExploreProducts, onContactUs }: HeroProps) {
   const handleScrollDown = () => {
     window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
   };
@@ -36,25 +36,25 @@ export default function Hero({ onExploreProducts, onLearnMore }: HeroProps) {
           <Badge
             variant="secondary"
             className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm"
-            data-testid="badge-swiss-made"
+            data-testid="badge-partner"
           >
-            Swiss Precision Engineering
+            Offizieller TRUMPF Partner
           </Badge>
 
           <h1
             className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6"
             data-testid="text-hero-title"
           >
-            Professional Power Tools for{" "}
-            <span className="text-primary">Metal Fabrication</span>
+            Effiziente Lösungen für{" "}
+            <span className="text-primary">Elektrotechnik & CNC</span>
           </h1>
 
           <p
             className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mb-8"
             data-testid="text-hero-description"
           >
-            100+ years of German engineering excellence. Industry-leading nibblers, shears,
-            and bevelers trusted by professionals worldwide. Built in Switzerland.
+            Wir unterstützen Industrie und Handwerk mit geprüften TRUMPF Elektrowerkzeugen, 
+            fachkundiger Beratung und verlässlichem Service – aus Ludwigsburg für Baden-Württemberg.
           </p>
 
           <div className="flex flex-wrap gap-4">
@@ -62,35 +62,25 @@ export default function Hero({ onExploreProducts, onLearnMore }: HeroProps) {
               size="lg"
               className="gap-2"
               onClick={onExploreProducts}
-              data-testid="button-explore-products"
+              data-testid="button-produkte"
             >
-              Explore Products
+              Produkte ansehen
               <ArrowRight className="w-4 h-4" />
             </Button>
             <Button
               size="lg"
               variant="outline"
               className="bg-white/10 border-white/30 text-white backdrop-blur-sm hover:bg-white/20"
-              onClick={onLearnMore}
-              data-testid="button-learn-more"
+              onClick={onContactUs}
+              data-testid="button-beratung"
             >
-              Learn More
+              Beratung anfordern
             </Button>
           </div>
 
-          <div className="flex flex-wrap items-center gap-8 mt-12 pt-8 border-t border-white/20">
-            <div data-testid="stat-years">
-              <div className="text-3xl font-bold text-white">100+</div>
-              <div className="text-sm text-white/60">Years of Innovation</div>
-            </div>
-            <div data-testid="stat-countries">
-              <div className="text-3xl font-bold text-white">86</div>
-              <div className="text-sm text-white/60">Countries Served</div>
-            </div>
-            <div data-testid="stat-manufacturing">
-              <div className="text-3xl font-bold text-white">Swiss</div>
-              <div className="text-sm text-white/60">Manufacturing</div>
-            </div>
+          <div className="flex flex-wrap items-center gap-2 mt-8">
+            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
+            <span className="text-sm text-white/60">Heute verfügbar bis 17:00 Uhr</span>
           </div>
         </motion.div>
       </div>

@@ -4,6 +4,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
 import { Label } from "@/components/ui/label";
+import { Checkbox } from "@/components/ui/checkbox";
 import {
   Select,
   SelectContent,
@@ -12,25 +13,16 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 import { useToast } from "@/hooks/use-toast";
-import { Phone, Mail, MapPin, Clock } from "lucide-react";
+import { Phone, Mail, MapPin, Clock, Check } from "lucide-react";
 import { motion } from "framer-motion";
 
-const industries = [
-  "Metal Fabrication",
-  "Construction",
-  "Shipbuilding",
-  "HVAC",
-  "Automotive",
-  "Other",
-];
-
-const products = [
-  "Nibblers",
-  "Slitting Shears",
-  "Bevelers",
-  "Laser Cleaners",
-  "Multiple Products",
-  "Not Sure",
+const subjects = [
+  "Produktberatung",
+  "Angebot anfragen",
+  "Wartung & Service",
+  "Reparatur",
+  "Aktionen",
+  "Sonstiges",
 ];
 
 interface ContactSectionProps {
@@ -44,132 +36,85 @@ export default function ContactSection({ id }: ContactSectionProps) {
     company: "",
     email: "",
     phone: "",
-    industry: "",
-    product: "",
+    subject: "",
     message: "",
+    privacy: false,
   });
 
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    if (!formData.privacy) {
+      toast({
+        title: "Datenschutz",
+        description: "Bitte stimmen Sie der Datenschutzerklärung zu.",
+        variant: "destructive",
+      });
+      return;
+    }
     // todo: remove mock functionality
     console.log("Form submitted:", formData);
     toast({
-      title: "Quote Request Submitted",
-      description: "Our team will contact you within 24 hours.",
+      title: "Anfrage gesendet",
+      description: "Wir melden uns werktags innerhalb von 24 Stunden bei Ihnen.",
     });
     setFormData({
       name: "",
       company: "",
       email: "",
       phone: "",
-      industry: "",
-      product: "",
+      subject: "",
       message: "",
+      privacy: false,
     });
   };
 
   return (
-    <section
-      id={id}
-      className="py-20 lg:py-32 bg-background"
-      data-testid="section-contact"
-    >
+    <section id={id} className="py-20 lg:py-32 bg-background" data-testid="section-contact">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20">
+        <div className="text-center mb-12">
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4" data-testid="text-contact-title">
+            Kontakt & Beratung
+          </h2>
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto" data-testid="text-contact-subtitle">
+            Wir melden uns werktags innerhalb von 24 Stunden. Unser Expertenteam berät Sie gerne 
+            zu allen Fragen rund um TRUMPF TruTool Werkzeuge.
+          </p>
+        </div>
+
+        <div className="grid lg:grid-cols-5 gap-8">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-          >
-            <h2
-              className="text-3xl lg:text-4xl font-bold tracking-tight mb-6"
-              data-testid="text-contact-title"
-            >
-              Request a Quote
-            </h2>
-            <p
-              className="text-muted-foreground text-lg mb-8"
-              data-testid="text-contact-subtitle"
-            >
-              Our team of specialists is ready to help you find the perfect power tool
-              solution for your application.
-            </p>
-
-            <div className="space-y-6">
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Phone className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold">Phone Support</div>
-                  <div className="text-muted-foreground">+1 (800) 555-TOOL</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Mail className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold">Email</div>
-                  <div className="text-muted-foreground">sales@trump-tools.com</div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <MapPin className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold">Headquarters</div>
-                  <div className="text-muted-foreground">
-                    Ditzingen, Germany
-                  </div>
-                </div>
-              </div>
-              <div className="flex items-start gap-4">
-                <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center flex-shrink-0">
-                  <Clock className="w-5 h-5 text-primary" />
-                </div>
-                <div>
-                  <div className="font-semibold">Response Time</div>
-                  <div className="text-muted-foreground">Within 24 hours</div>
-                </div>
-              </div>
-            </div>
-          </motion.div>
-
-          <motion.div
-            initial={{ opacity: 0, x: 30 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
+            className="lg:col-span-3"
           >
             <Card className="p-6 lg:p-8" data-testid="card-contact-form">
+              <h3 className="font-semibold text-xl mb-2">Ihre Anfrage</h3>
+              <p className="text-muted-foreground text-sm mb-6">
+                Füllen Sie das Formular aus und wir melden uns schnellstmöglich bei Ihnen.
+              </p>
+              
               <form onSubmit={handleSubmit} className="space-y-5">
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="name">Full Name</Label>
+                    <Label htmlFor="name">Name *</Label>
                     <Input
                       id="name"
-                      placeholder="John Smith"
+                      placeholder="Ihr Name"
                       value={formData.name}
-                      onChange={(e) =>
-                        setFormData({ ...formData, name: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, name: e.target.value })}
                       required
                       data-testid="input-name"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="company">Company</Label>
+                    <Label htmlFor="company">Unternehmen</Label>
                     <Input
                       id="company"
-                      placeholder="Acme Manufacturing"
+                      placeholder="Firma (optional)"
                       value={formData.company}
-                      onChange={(e) =>
-                        setFormData({ ...formData, company: e.target.value })
-                      }
-                      required
+                      onChange={(e) => setFormData({ ...formData, company: e.target.value })}
                       data-testid="input-company"
                     />
                   </div>
@@ -177,95 +122,146 @@ export default function ContactSection({ id }: ContactSectionProps) {
 
                 <div className="grid sm:grid-cols-2 gap-4">
                   <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
+                    <Label htmlFor="email">E-Mail *</Label>
                     <Input
                       id="email"
                       type="email"
-                      placeholder="john@example.com"
+                      placeholder="ihre@email.de"
                       value={formData.email}
-                      onChange={(e) =>
-                        setFormData({ ...formData, email: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                       required
                       data-testid="input-email"
                     />
                   </div>
                   <div className="space-y-2">
-                    <Label htmlFor="phone">Phone</Label>
+                    <Label htmlFor="phone">Telefon</Label>
                     <Input
                       id="phone"
                       type="tel"
-                      placeholder="+1 (555) 123-4567"
+                      placeholder="+49 ..."
                       value={formData.phone}
-                      onChange={(e) =>
-                        setFormData({ ...formData, phone: e.target.value })
-                      }
+                      onChange={(e) => setFormData({ ...formData, phone: e.target.value })}
                       data-testid="input-phone"
                     />
                   </div>
                 </div>
 
-                <div className="grid sm:grid-cols-2 gap-4">
-                  <div className="space-y-2">
-                    <Label>Industry</Label>
-                    <Select
-                      value={formData.industry}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, industry: value })
-                      }
-                    >
-                      <SelectTrigger data-testid="select-industry">
-                        <SelectValue placeholder="Select industry" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {industries.map((industry) => (
-                          <SelectItem key={industry} value={industry}>
-                            {industry}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Product Interest</Label>
-                    <Select
-                      value={formData.product}
-                      onValueChange={(value) =>
-                        setFormData({ ...formData, product: value })
-                      }
-                    >
-                      <SelectTrigger data-testid="select-product">
-                        <SelectValue placeholder="Select product" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        {products.map((product) => (
-                          <SelectItem key={product} value={product}>
-                            {product}
-                          </SelectItem>
-                        ))}
-                      </SelectContent>
-                    </Select>
-                  </div>
+                <div className="space-y-2">
+                  <Label>Betreff</Label>
+                  <Select
+                    value={formData.subject}
+                    onValueChange={(value) => setFormData({ ...formData, subject: value })}
+                  >
+                    <SelectTrigger data-testid="select-subject">
+                      <SelectValue placeholder="Wählen Sie ein Thema" />
+                    </SelectTrigger>
+                    <SelectContent>
+                      {subjects.map((subject) => (
+                        <SelectItem key={subject} value={subject}>
+                          {subject}
+                        </SelectItem>
+                      ))}
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 <div className="space-y-2">
-                  <Label htmlFor="message">Message</Label>
+                  <Label htmlFor="message">Ihr Anliegen *</Label>
                   <Textarea
                     id="message"
-                    placeholder="Tell us about your project or requirements..."
-                    rows={4}
+                    placeholder="Wie können wir Ihnen helfen?"
+                    rows={5}
                     value={formData.message}
-                    onChange={(e) =>
-                      setFormData({ ...formData, message: e.target.value })
-                    }
+                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    required
                     data-testid="input-message"
                   />
                 </div>
 
+                <div className="flex items-start gap-2">
+                  <Checkbox
+                    id="privacy"
+                    checked={formData.privacy}
+                    onCheckedChange={(checked) =>
+                      setFormData({ ...formData, privacy: checked as boolean })
+                    }
+                    data-testid="checkbox-privacy"
+                  />
+                  <Label htmlFor="privacy" className="text-sm text-muted-foreground leading-relaxed">
+                    Ich stimme der Verarbeitung meiner Daten gemäß Datenschutzerklärung zu.
+                  </Label>
+                </div>
+
                 <Button type="submit" className="w-full" data-testid="button-submit">
-                  Submit Request
+                  Anfrage absenden
                 </Button>
               </form>
+            </Card>
+          </motion.div>
+
+          <motion.div
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="lg:col-span-2"
+          >
+            <Card className="p-6 lg:p-8 bg-primary text-primary-foreground h-full">
+              <h3 className="font-semibold text-xl mb-6">Direkter Kontakt</h3>
+              <p className="text-primary-foreground/80 mb-8">
+                Unser Expertenteam berät Sie gerne bei der Auswahl des richtigen TruTool Werkzeugs.
+              </p>
+
+              <div className="space-y-6">
+                <div>
+                  <div className="text-sm text-primary-foreground/60 mb-1">Telefon</div>
+                  <a
+                    href="tel:+497141921912"
+                    className="text-xl font-bold hover:underline"
+                    data-testid="link-phone"
+                  >
+                    +49 (0) 7141 921 912
+                  </a>
+                </div>
+                <div>
+                  <div className="text-sm text-primary-foreground/60 mb-1">E-Mail</div>
+                  <a
+                    href="mailto:burk-trutools@web.de"
+                    className="text-lg hover:underline"
+                    data-testid="link-email"
+                  >
+                    burk-trutools@web.de
+                  </a>
+                </div>
+                <div className="pt-4 border-t border-primary-foreground/20">
+                  <div className="font-semibold mb-2">Thomas Burk GmbH</div>
+                  <div className="text-sm text-primary-foreground/80">
+                    Friedrich-Naumann-Str. 11<br />
+                    71636 Ludwigsburg
+                  </div>
+                </div>
+                <div>
+                  <div className="text-sm text-primary-foreground/60 mb-1">Öffnungszeiten</div>
+                  <div className="text-sm">Mo–Fr: 7:00–17:00 Uhr</div>
+                </div>
+              </div>
+
+              <div className="mt-8 p-4 bg-primary-foreground/10 rounded-md border-l-2 border-primary-foreground/50">
+                <div className="text-sm space-y-1">
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4" />
+                    Antwort innerhalb 24h (werktags)
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4" />
+                    Kostenlose Erstberatung
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Check className="w-4 h-4" />
+                    Individuelle Lösungen
+                  </div>
+                </div>
+              </div>
             </Card>
           </motion.div>
         </div>

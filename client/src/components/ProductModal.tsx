@@ -18,19 +18,19 @@ interface ProductModalProps {
 
 // todo: remove mock functionality
 const mockSpecs = {
-  "Material Thickness": "Up to 7mm (steel)",
-  "Cutting Speed": "6 m/min",
-  "Weight": "2.8 kg",
-  "Power": "710 W",
-  "Strokes": "2,600 strokes/min",
+  "Materialstärke": "Bis zu 7mm (Stahl)",
+  "Schnittgeschwindigkeit": "6 m/min",
+  "Gewicht": "2,8 kg",
+  "Leistung": "710 W",
+  "Hubzahl": "2.600 Hübe/min",
 };
 
 const mockApplications = [
-  "Sheet metal cutting",
-  "HVAC ductwork",
-  "Automotive bodywork",
-  "Industrial machinery",
-  "Construction steel",
+  "Blechbearbeitung",
+  "HLK-Kanalbau",
+  "Automobilbau",
+  "Industriemaschinen",
+  "Baustahl",
 ];
 
 export default function ProductModal({ product, open, onClose }: ProductModalProps) {
@@ -38,18 +38,11 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
 
   return (
     <Dialog open={open} onOpenChange={onClose}>
-      <DialogContent
-        className="max-w-4xl max-h-[90vh] overflow-y-auto"
-        data-testid="modal-product"
-      >
+      <DialogContent className="max-w-4xl max-h-[90vh] overflow-y-auto" data-testid="modal-product">
         <DialogHeader>
           <div className="flex flex-wrap items-center gap-2 mb-2">
-            {product.isNew && <Badge data-testid="modal-badge-new">New</Badge>}
-            {product.isSwissMade && (
-              <Badge variant="secondary" data-testid="modal-badge-swiss">
-                Swiss Made
-              </Badge>
-            )}
+            {product.isNew && <Badge data-testid="modal-badge-new">Neu</Badge>}
+            <Badge variant="secondary">TRUMPF Partner</Badge>
           </div>
           <DialogTitle className="text-2xl" data-testid="modal-title">
             {product.name}
@@ -69,9 +62,9 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
           <div>
             <Tabs defaultValue="overview" className="w-full">
               <TabsList className="w-full justify-start" data-testid="modal-tabs">
-                <TabsTrigger value="overview">Overview</TabsTrigger>
-                <TabsTrigger value="specs">Specifications</TabsTrigger>
-                <TabsTrigger value="applications">Applications</TabsTrigger>
+                <TabsTrigger value="overview">Übersicht</TabsTrigger>
+                <TabsTrigger value="specs">Technische Daten</TabsTrigger>
+                <TabsTrigger value="applications">Anwendungen</TabsTrigger>
               </TabsList>
 
               <TabsContent value="overview" className="mt-6">
@@ -79,7 +72,7 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
                   {product.description}
                 </p>
                 <div className="space-y-3 mb-6">
-                  {["Precision engineering", "Ergonomic design", "Long service life"].map(
+                  {["Präzisionstechnik", "Ergonomisches Design", "Lange Lebensdauer"].map(
                     (feature) => (
                       <div key={feature} className="flex items-center gap-2">
                         <Check className="w-4 h-4 text-primary" />
@@ -89,7 +82,7 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
                   )}
                 </div>
                 <div className="text-2xl font-bold mb-6" data-testid="modal-price">
-                  From {product.price}
+                  Ab {product.price}
                 </div>
               </TabsContent>
 
@@ -122,15 +115,11 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
             <div className="flex flex-col gap-3 mt-8">
               <Button className="w-full gap-2" data-testid="modal-button-quote">
                 <Phone className="w-4 h-4" />
-                Request Quote
+                Angebot anfordern
               </Button>
-              <Button
-                variant="outline"
-                className="w-full gap-2"
-                data-testid="modal-button-download"
-              >
+              <Button variant="outline" className="w-full gap-2" data-testid="modal-button-download">
                 <Download className="w-4 h-4" />
-                Download Datasheet
+                Datenblatt herunterladen
               </Button>
             </div>
           </div>

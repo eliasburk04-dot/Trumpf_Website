@@ -7,100 +7,79 @@ import shearsImage from "@assets/generated_images/shears_product_photo.png";
 import bevelerImage from "@assets/generated_images/beveler_product_photo.png";
 import laserCleanerImage from "@assets/generated_images/laser_cleaner_product_photo.png";
 
-// todo: remove mock functionality
+// todo: remove mock functionality - Produktbilder werden vom Kunden hinzugefügt
 const mockProducts: Product[] = [
   {
     id: "nibbler-n700",
     name: "TruTool N 700",
-    category: "Nibblers",
-    description:
-      "High-performance nibbler for precise sheet metal cutting up to 7mm. Ideal for contours and curves.",
-    price: "$1,299",
+    category: "Nibbler",
+    description: "Hochleistungs-Nibbler für präzises Schneiden von Blechen bis 7mm. Ideal für Konturen und Kurven.",
+    price: "1.299 €",
     image: nibblerImage,
     isNew: true,
-    isSwissMade: true,
   },
   {
     id: "shear-c160",
     name: "TruTool C 160",
-    category: "Slitting Shears",
-    description:
-      "Cordless slitting shears with chip clipper for clean, burr-free cuts in stainless steel.",
-    price: "$1,849",
+    category: "Schlitzscheren",
+    description: "Akku-Schlitzschere mit Spanabschneider für saubere, gratfreie Schnitte in Edelstahl.",
+    price: "1.849 €",
     image: shearsImage,
-    isSwissMade: true,
   },
   {
     id: "beveler-tka500",
     name: "TruTool TKA 500",
-    category: "Bevelers",
-    description:
-      "Professional plate beveler for weld preparation. Creates precise 15° to 60° bevels.",
-    price: "$2,499",
+    category: "Kantenfräsen",
+    description: "Professionelle Kantenfräsmaschine zur Schweißnahtvorbereitung. Erzeugt präzise 15° bis 60° Fasen.",
+    price: "2.499 €",
     image: bevelerImage,
     isNew: true,
   },
   {
     id: "laser-tsc100",
     name: "TruTool TSC 100",
-    category: "Laser Cleaners",
-    description:
-      "Innovative laser slat cleaner for removing slag from plasma and laser cutting tables.",
-    price: "$3,299",
+    category: "Reinigungsgeräte",
+    description: "Innovativer Laser-Lamellenreiniger zum Entfernen von Schlacke von Plasma- und Laserschneidtischen.",
+    price: "3.299 €",
     image: laserCleanerImage,
-    isSwissMade: true,
   },
 ];
 
-const categories = ["All", "Nibblers", "Slitting Shears", "Bevelers", "Laser Cleaners"];
+const categories = ["Alle", "Nibbler", "Schlitzscheren", "Kantenfräsen", "Reinigungsgeräte"];
 
 interface ProductsSectionProps {
   id?: string;
 }
 
 export default function ProductsSection({ id }: ProductsSectionProps) {
-  const [activeCategory, setActiveCategory] = useState("All");
+  const [activeCategory, setActiveCategory] = useState("Alle");
   const [selectedProduct, setSelectedProduct] = useState<Product | null>(null);
 
   const filteredProducts =
-    activeCategory === "All"
+    activeCategory === "Alle"
       ? mockProducts
       : mockProducts.filter((p) => p.category === activeCategory);
 
   return (
-    <section
-      id={id}
-      className="py-20 lg:py-32 bg-background"
-      data-testid="section-products"
-    >
+    <section id={id} className="py-20 lg:py-32 bg-background" data-testid="section-products">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2
-            className="text-3xl lg:text-4xl font-bold tracking-tight mb-4"
-            data-testid="text-products-title"
-          >
-            Professional Power Tools
+          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4" data-testid="text-products-title">
+            TRUMPF TruTool Produkte
           </h2>
-          <p
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
-            data-testid="text-products-subtitle"
-          >
-            Swiss-engineered precision tools designed for the most demanding metal fabrication
-            applications.
+          <p className="text-muted-foreground text-lg max-w-2xl mx-auto" data-testid="text-products-subtitle">
+            Professionelle Elektrowerkzeuge für höchste Ansprüche in der Metallverarbeitung.
           </p>
         </div>
 
-        <div
-          className="flex flex-wrap justify-center gap-2 mb-12"
-          data-testid="filter-categories"
-        >
+        <div className="flex flex-wrap justify-center gap-2 mb-12" data-testid="filter-categories">
           {categories.map((category) => (
             <Button
               key={category}
               variant={activeCategory === category ? "default" : "secondary"}
               size="sm"
               onClick={() => setActiveCategory(category)}
-              data-testid={`button-category-${category.toLowerCase().replace(" ", "-")}`}
+              data-testid={`button-category-${category.toLowerCase()}`}
             >
               {category}
             </Button>
@@ -119,7 +98,7 @@ export default function ProductsSection({ id }: ProductsSectionProps) {
 
         <div className="text-center mt-12">
           <Button variant="outline" size="lg" data-testid="button-view-catalog">
-            View Full Catalog
+            Gesamtkatalog ansehen
           </Button>
         </div>
       </div>

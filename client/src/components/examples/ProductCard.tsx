@@ -4,13 +4,12 @@ import nibblerImage from "@assets/generated_images/nibbler_product_photo.png";
 const mockProduct: Product = {
   id: "nibbler-n700",
   name: "TruTool N 700",
-  category: "Nibblers",
+  category: "Nibbler",
   description:
-    "High-performance nibbler for precise sheet metal cutting up to 7mm. Ideal for contours and curves.",
-  price: "$1,299",
+    "Hochleistungs-Nibbler für präzises Schneiden von Blechen bis 7mm. Ideal für Konturen und Kurven.",
+  price: "1.299 €",
   image: nibblerImage,
   isNew: true,
-  isSwissMade: true,
 };
 
 export default function ProductCardExample() {
@@ -18,7 +17,7 @@ export default function ProductCardExample() {
     <div className="max-w-sm">
       <ProductCard
         product={mockProduct}
-        onViewDetails={(product) => console.log("View details:", product.name)}
+        onViewDetails={(product) => console.log("Details anzeigen:", product.name)}
       />
     </div>
   );

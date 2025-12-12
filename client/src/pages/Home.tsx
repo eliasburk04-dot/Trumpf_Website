@@ -1,10 +1,10 @@
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import TrustIndicators from "@/components/TrustIndicators";
+import ServicesSection from "@/components/ServicesSection";
 import ProductsSection from "@/components/ProductsSection";
-import FeaturesSection from "@/components/FeaturesSection";
-import IndustriesSection from "@/components/IndustriesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
-import CTASection from "@/components/CTASection";
+import PromotionsSection from "@/components/PromotionsSection";
+import AboutSection from "@/components/AboutSection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
 
@@ -21,18 +21,15 @@ export default function Home() {
       <Header onNavigate={scrollToSection} />
       <main>
         <Hero
-          onExploreProducts={() => scrollToSection("products")}
-          onLearnMore={() => scrollToSection("technology")}
+          onExploreProducts={() => scrollToSection("produkte")}
+          onContactUs={() => scrollToSection("kontakt")}
         />
-        <ProductsSection id="products" />
-        <FeaturesSection id="technology" />
-        <IndustriesSection id="industries" />
-        <TestimonialsSection id="testimonials" />
-        <CTASection
-          onFindDealer={() => scrollToSection("contact")}
-          onRequestCatalog={() => scrollToSection("contact")}
-        />
-        <ContactSection id="contact" />
+        <TrustIndicators />
+        <ServicesSection id="leistungen" onNavigate={scrollToSection} />
+        <PromotionsSection id="aktionen" onContactClick={() => scrollToSection("kontakt")} />
+        <ProductsSection id="produkte" />
+        <AboutSection id="ueber-uns" />
+        <ContactSection id="kontakt" />
       </main>
       <Footer />
     </div>

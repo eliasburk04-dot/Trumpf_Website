@@ -12,7 +12,6 @@ export interface Product {
   price: string;
   image: string;
   isNew?: boolean;
-  isSwissMade?: boolean;
 }
 
 interface ProductCardProps {
@@ -40,26 +39,11 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
             className="w-full h-full object-contain p-6 transition-transform duration-500 group-hover:scale-105"
             data-testid={`img-product-${product.id}`}
           />
-          <div className="absolute top-3 left-3 flex flex-wrap gap-2">
-            {product.isNew && (
-              <Badge
-                variant="default"
-                className="text-xs"
-                data-testid={`badge-new-${product.id}`}
-              >
-                New
-              </Badge>
-            )}
-            {product.isSwissMade && (
-              <Badge
-                variant="secondary"
-                className="text-xs"
-                data-testid={`badge-swiss-${product.id}`}
-              >
-                Swiss Made
-              </Badge>
-            )}
-          </div>
+          {product.isNew && (
+            <Badge className="absolute top-3 left-3 text-xs" data-testid={`badge-new-${product.id}`}>
+              Neu
+            </Badge>
+          )}
         </div>
 
         <div className="p-5">
@@ -80,7 +64,7 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
           </p>
           <div className="flex items-center justify-between gap-4">
             <div className="font-mono text-sm text-muted-foreground">
-              From <span className="font-semibold text-foreground">{product.price}</span>
+              Ab <span className="font-semibold text-foreground">{product.price}</span>
             </div>
             <Button
               variant="ghost"

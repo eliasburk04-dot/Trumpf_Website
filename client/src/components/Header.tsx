@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, ChevronDown } from "lucide-react";
+import { Menu, X, ChevronDown, Phone } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 
 interface HeaderProps {
@@ -22,14 +22,13 @@ export default function Header({ onNavigate }: HeaderProps) {
 
   const navItems = [
     {
-      label: "Products",
-      href: "#products",
-      dropdown: ["Nibblers", "Shears", "Bevelers", "Laser Cleaners"],
+      label: "Produkte",
+      href: "#produkte",
+      dropdown: ["Nibbler", "Scheren", "Kantenfräsen", "Zubehör"],
     },
-    { label: "Technology", href: "#technology" },
-    { label: "Industries", href: "#industries" },
-    { label: "About", href: "#about" },
-    { label: "Contact", href: "#contact" },
+    { label: "Leistungen", href: "#leistungen" },
+    { label: "Aktionen", href: "#aktionen" },
+    { label: "Kontakt", href: "#kontakt" },
   ];
 
   const handleNavClick = (section: string) => {
@@ -56,12 +55,12 @@ export default function Header({ onNavigate }: HeaderProps) {
           >
             <div className="flex items-center gap-2">
               <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
-                <span className="text-primary-foreground font-bold text-lg">T</span>
+                <span className="text-primary-foreground font-bold text-lg">TB</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg tracking-tight">TRUMP</span>
-                <span className="text-[10px] text-muted-foreground tracking-widest uppercase -mt-1">
-                  Elektrowerkzeuge
+                <span className="font-bold text-lg tracking-tight">Thomas Burk GmbH</span>
+                <span className="text-[10px] text-muted-foreground tracking-wide -mt-1">
+                  TRUMPF Partner
                 </span>
               </div>
             </div>
@@ -97,7 +96,7 @@ export default function Header({ onNavigate }: HeaderProps) {
                     {item.dropdown.map((subItem) => (
                       <a
                         key={subItem}
-                        href={`#${subItem.toLowerCase().replace(" ", "-")}`}
+                        href={`#${subItem.toLowerCase()}`}
                         className="block px-4 py-2 text-sm text-foreground/80 hover:bg-accent hover:text-foreground transition-colors"
                         data-testid={`link-dropdown-${subItem.toLowerCase()}`}
                       >
@@ -112,19 +111,21 @@ export default function Header({ onNavigate }: HeaderProps) {
 
           <div className="hidden lg:flex items-center gap-3">
             <Button
-              variant="ghost"
+              variant="outline"
               size="sm"
-              data-testid="button-find-dealer"
-              onClick={() => handleNavClick("contact")}
+              className="gap-2"
+              data-testid="button-phone"
+              onClick={() => window.location.href = "tel:+497141921912"}
             >
-              Find a Dealer
+              <Phone className="w-4 h-4" />
+              +49 7141 921 912
             </Button>
             <Button
               size="sm"
-              data-testid="button-request-quote"
-              onClick={() => handleNavClick("contact")}
+              data-testid="button-beratung"
+              onClick={() => handleNavClick("kontakt")}
             >
-              Request Quote
+              Beratung anfordern
             </Button>
           </div>
 
@@ -165,10 +166,11 @@ export default function Header({ onNavigate }: HeaderProps) {
                 </a>
               ))}
               <div className="flex flex-col gap-2 pt-4">
-                <Button variant="outline" data-testid="button-mobile-dealer">
-                  Find a Dealer
+                <Button variant="outline" className="gap-2" onClick={() => window.location.href = "tel:+497141921912"}>
+                  <Phone className="w-4 h-4" />
+                  +49 7141 921 912
                 </Button>
-                <Button data-testid="button-mobile-quote">Request Quote</Button>
+                <Button onClick={() => handleNavClick("kontakt")}>Beratung anfordern</Button>
               </div>
             </div>
           </motion.div>
