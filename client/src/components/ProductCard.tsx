@@ -12,6 +12,12 @@ export interface Product {
   price: string;
   image: string;
   isNew?: boolean;
+  longDescription?: string;
+  highlights?: string[];
+  accessories?: string[];
+  specs?: Record<string, any>;
+  ctaPrimary?: string;
+  ctaSecondary?: string;
 }
 
 interface ProductCardProps {

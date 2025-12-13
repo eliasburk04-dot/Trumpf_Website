@@ -58,8 +58,8 @@ export default function Header({ onNavigate }: HeaderProps) {
                 <span className="text-primary-foreground font-bold text-lg">TB</span>
               </div>
               <div className="flex flex-col">
-                <span className="font-bold text-lg tracking-tight">Thomas Burk GmbH</span>
-                <span className="text-[10px] text-muted-foreground tracking-wide -mt-1">
+                <span className={`font-bold text-lg tracking-tight ${isScrolled ? "text-foreground" : "text-white"}`}>Thomas Burk GmbH</span>
+                <span className={`text-[10px] tracking-wide -mt-1 ${isScrolled ? "text-muted-foreground" : "text-white/80"}`}>
                   TRUMPF Partner
                 </span>
               </div>
@@ -76,7 +76,7 @@ export default function Header({ onNavigate }: HeaderProps) {
               >
                 <a
                   href={item.href}
-                  className="flex items-center gap-1 px-4 py-2 text-sm font-medium text-foreground/80 hover:text-foreground transition-colors"
+                  className={`flex items-center gap-1 px-4 py-2 text-sm font-medium transition-colors ${isScrolled ? "text-foreground/80 hover:text-foreground" : "text-white/90 hover:text-white"}`}
                   data-testid={`link-nav-${item.label.toLowerCase()}`}
                   onClick={(e) => {
                     e.preventDefault();
@@ -111,16 +111,6 @@ export default function Header({ onNavigate }: HeaderProps) {
 
           <div className="hidden lg:flex items-center gap-3">
             <Button
-              variant="outline"
-              size="sm"
-              className="gap-2"
-              data-testid="button-phone"
-              onClick={() => window.location.href = "tel:+497141921912"}
-            >
-              <Phone className="w-4 h-4" />
-              +49 7141 921 912
-            </Button>
-            <Button
               size="sm"
               data-testid="button-beratung"
               onClick={() => handleNavClick("kontakt")}
@@ -132,7 +122,7 @@ export default function Header({ onNavigate }: HeaderProps) {
           <Button
             variant="ghost"
             size="icon"
-            className="lg:hidden"
+            className={`lg:hidden ${isScrolled ? "" : "text-white hover:text-white hover:bg-white/20"}`}
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             data-testid="button-mobile-menu"
           >

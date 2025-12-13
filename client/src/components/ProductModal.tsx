@@ -16,23 +16,6 @@ interface ProductModalProps {
   onClose: () => void;
 }
 
-// todo: remove mock functionality
-const mockSpecs = {
-  "Materialstärke": "Bis zu 7mm (Stahl)",
-  "Schnittgeschwindigkeit": "6 m/min",
-  "Gewicht": "2,8 kg",
-  "Leistung": "710 W",
-  "Hubzahl": "2.600 Hübe/min",
-};
-
-const mockApplications = [
-  "Blechbearbeitung",
-  "HLK-Kanalbau",
-  "Automobilbau",
-  "Industriemaschinen",
-  "Baustahl",
-];
-
 export default function ProductModal({ product, open, onClose }: ProductModalProps) {
   if (!product) return null;
 
@@ -50,78 +33,90 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
         </DialogHeader>
 
         <div className="grid md:grid-cols-2 gap-8 mt-4">
-          <div className="bg-muted rounded-md p-6">
-            <img
-              src={product.image}
-              alt={product.name}
-              className="w-full h-auto object-contain"
-              data-testid="modal-image"
-            />
-          </div>
+          <div className="space-y-6">
+            <div className="aspect-square bg-muted rounded-lg overflow-hidden flex items-center justify-center p-8">
+              <img
+                src={product.image}
+                alt={product.name}
+                className="w-full h-full object-contain"
+                data-testid="modal-img"
+              />
+            </div>
 
-          <div>
-            <Tabs defaultValue="overview" className="w-full">
-              <TabsList className="w-full justify-start" data-testid="modal-tabs">
-                <TabsTrigger value="overview">Übersicht</TabsTrigger>
-                <TabsTrigger value="specs">Technische Daten</TabsTrigger>
-                <TabsTrigger value="applications">Anwendungen</TabsTrigger>
-              </TabsList>
-
-              <TabsContent value="overview" className="mt-6">
-                <p className="text-muted-foreground mb-6" data-testid="modal-description">
-                  {product.description}
-                </p>
-                <div className="space-y-3 mb-6">
-                  {["Präzisionstechnik", "Ergonomisches Design", "Lange Lebensdauer"].map(
-                    (feature) => (
-                      <div key={feature} className="flex items-center gap-2">
-                        <Check className="w-4 h-4 text-primary" />
-                        <span className="text-sm">{feature}</span>
-                      </div>
-                    )
-                  )}
-                </div>
-                <div className="text-2xl font-bold mb-6" data-testid="modal-price">
-                  Ab {product.price}
-                </div>
-              </TabsContent>
-
-              <TabsContent value="specs" className="mt-6">
-                <div className="space-y-3">
-                  {Object.entries(mockSpecs).map(([key, value]) => (
-                    <div
-                      key={key}
-                      className="flex justify-between py-2 border-b border-border last:border-0"
-                    >
-                      <span className="text-muted-foreground">{key}</span>
-                      <span className="font-mono text-sm">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              </TabsContent>
-
-              <TabsContent value="applications" className="mt-6">
+            {product.highlights && (
+              <div>
+                <h4 className="font-semibold mb-3">Highlights</h4>
                 <ul className="space-y-2">
-                  {mockApplications.map((app) => (
-                    <li key={app} className="flex items-center gap-2">
-                      <Check className="w-4 h-4 text-primary" />
-                      <span>{app}</span>
+                  {product.highlights.map((highlight, i) => (
+                    <li key={i} className="flex items-start gap-2 text-sm text-muted-foreground">
+                      <Check className="h-4 w-4 text-primary mt-0.5 shrink-0" />
+                      {highlight}
                     </li>
                   ))}
                 </ul>
+              </div>
+            )}
+          </div>
+
+          <div className="space-y-6">
+            <div>
+              <h3 className="text-xl font-semibold mb-2">{product.price}</h3>
+              <p className="text-muted-foreground mb-4">
+                {product.longDescription || product.description}
+              </p>
+
+              <div className="flex flex-wrap gap-3">
+                <Button className="flex-1" data-testid="modal-btn-contact">
+                  <Phone className="mr-2 h-4 w-4" />
+                  {product.ctaPrimary || "Kontakt aufnehmen"}
+                </Button>
+                <Button variant="outline" className="flex-1" data-testid="modal-btn-datasheet">
+                  <Download className="mr-2 h-4 w-4" />
+                  {product.ctaSecondary || "Datenblatt"}
+                </Button>
+              </div>
+            </div>
+
+            <Tabs defaultValue="specs" className="w-full">
+              <TabsList className="w-full">
+                <TabsTrigger value="specs" className="flex-1">Technische Daten</TabsTrigger>
+                <TabsTrigger value="accessories" className="flex-1">Zubehör</TabsTrigger>
+              </TabsList>
+
+              <TabsContent value="specs" className="mt-4 space-y-4">
+                {product.specs ? (
+                  <div className="grid grid-cols-2 gap-4">
+                    {Object.entries(product.specs).map(([key, value]) => (
+                      <div key={key} className="space-y-1">
+                        <span className="text-xs text-muted-foreground uppercase tracking-wider">
+                          {key.replace(/_/g, ' ')}
+                        </span>
+                        <p className="font-medium text-sm">
+                          {typeof value === 'object' ? JSON.stringify(value).replace(/["{}]/g, '').replace(/:/g, ': ').replace(/,/g, ', ') : value}
+                        </p>
+                      </div>
+                    ))}
+                  </div>
+                ) : (
+                  <p className="text-muted-foreground">Keine technischen Daten verfügbar.</p>
+                )}
+              </TabsContent>
+
+              <TabsContent value="accessories" className="mt-4">
+                {product.accessories ? (
+                  <ul className="space-y-2">
+                    {product.accessories.map((acc, i) => (
+                      <li key={i} className="flex items-center gap-2 text-sm">
+                        <div className="h-1.5 w-1.5 rounded-full bg-primary" />
+                        {acc}
+                      </li>
+                    ))}
+                  </ul>
+                ) : (
+                  <p className="text-muted-foreground">Kein Zubehör gelistet.</p>
+                )}
               </TabsContent>
             </Tabs>
-
-            <div className="flex flex-col gap-3 mt-8">
-              <Button className="w-full gap-2" data-testid="modal-button-quote">
-                <Phone className="w-4 h-4" />
-                Angebot anfordern
-              </Button>
-              <Button variant="outline" className="w-full gap-2" data-testid="modal-button-download">
-                <Download className="w-4 h-4" />
-                Datenblatt herunterladen
-              </Button>
-            </div>
           </div>
         </div>
       </DialogContent>

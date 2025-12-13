@@ -2,50 +2,9 @@ import { useState } from "react";
 import { Button } from "@/components/ui/button";
 import ProductCard, { type Product } from "./ProductCard";
 import ProductModal from "./ProductModal";
-import nibblerImage from "@assets/generated_images/nibbler_product_photo.png";
-import shearsImage from "@assets/generated_images/shears_product_photo.png";
-import bevelerImage from "@assets/generated_images/beveler_product_photo.png";
-import laserCleanerImage from "@assets/generated_images/laser_cleaner_product_photo.png";
+import { products } from "@/data/products";
 
-// todo: remove mock functionality - Produktbilder werden vom Kunden hinzugefügt
-const mockProducts: Product[] = [
-  {
-    id: "nibbler-n700",
-    name: "TruTool N 700",
-    category: "Nibbler",
-    description: "Hochleistungs-Nibbler für präzises Schneiden von Blechen bis 7mm. Ideal für Konturen und Kurven.",
-    price: "1.299 €",
-    image: nibblerImage,
-    isNew: true,
-  },
-  {
-    id: "shear-c160",
-    name: "TruTool C 160",
-    category: "Schlitzscheren",
-    description: "Akku-Schlitzschere mit Spanabschneider für saubere, gratfreie Schnitte in Edelstahl.",
-    price: "1.849 €",
-    image: shearsImage,
-  },
-  {
-    id: "beveler-tka500",
-    name: "TruTool TKA 500",
-    category: "Kantenfräsen",
-    description: "Professionelle Kantenfräsmaschine zur Schweißnahtvorbereitung. Erzeugt präzise 15° bis 60° Fasen.",
-    price: "2.499 €",
-    image: bevelerImage,
-    isNew: true,
-  },
-  {
-    id: "laser-tsc100",
-    name: "TruTool TSC 100",
-    category: "Reinigungsgeräte",
-    description: "Innovativer Laser-Lamellenreiniger zum Entfernen von Schlacke von Plasma- und Laserschneidtischen.",
-    price: "3.299 €",
-    image: laserCleanerImage,
-  },
-];
-
-const categories = ["Alle", "Nibbler", "Schlitzscheren", "Kantenfräsen", "Reinigungsgeräte"];
+const categories = ["Alle", ...Array.from(new Set(products.map((p) => p.category)))];
 
 interface ProductsSectionProps {
   id?: string;
@@ -57,8 +16,8 @@ export default function ProductsSection({ id }: ProductsSectionProps) {
 
   const filteredProducts =
     activeCategory === "Alle"
-      ? mockProducts
-      : mockProducts.filter((p) => p.category === activeCategory);
+      ? products
+      : products.filter((p) => p.category === activeCategory);
 
   return (
     <section id={id} className="py-20 lg:py-32 bg-background" data-testid="section-products">
