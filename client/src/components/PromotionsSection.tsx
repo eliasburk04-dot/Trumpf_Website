@@ -1,13 +1,11 @@
 import { useState } from "react";
 import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
-import { Clock, Percent, ArrowRight, Gift } from "lucide-react";
+import { Clock, Percent, ArrowRight, Gift, Phone } from "lucide-react";
 import { motion } from "framer-motion";
 import nibblerImage from "@assets/generated_images/nibbler_product_photo.png";
 import shearsImage from "@assets/generated_images/shears_product_photo.png";
 
-// todo: remove mock functionality
 const promotions = [
   {
     id: "sommer-aktion",
@@ -40,56 +38,56 @@ export default function PromotionsSection({ id, onContactClick }: PromotionsSect
   const [hoveredPromo, setHoveredPromo] = useState<string | null>(null);
 
   return (
-    <section id={id} className="py-20 lg:py-32 bg-card" data-testid="section-promotions">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <Badge variant="secondary" className="mb-4">
-            <Gift className="w-3 h-3 mr-1" />
-            Aktuelle Aktionen
-          </Badge>
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4" data-testid="text-promotions-title">
+    <section id={id} className="section bg-white dark:bg-slate-900" data-testid="section-promotions">
+      <div className="container mx-auto px-4">
+        <div className="section-header section-header-center">
+          <div className="inline-flex items-center gap-2 tag-orange mb-4">
+            <Gift className="w-4 h-4" />
+            <span>Aktuelle Aktionen</span>
+          </div>
+          <h2 className="section-title" data-testid="text-promotions-title">
             Aktionen & Sonderangebote
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto" data-testid="text-promotions-subtitle">
-            Entdecken Sie unsere aktuellen Aktionen und profitieren Sie von exklusiven Angeboten für TRUMPF Elektrowerkzeuge.
+          <p className="section-subtitle" data-testid="text-promotions-subtitle">
+            Entdecken Sie unsere aktuellen Aktionen und profitieren Sie von exklusiven Angeboten.
           </p>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8">
+        <div className="card-grid-2">
           {promotions.map((promo, index) => (
             <motion.div
               key={promo.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
               onMouseEnter={() => setHoveredPromo(promo.id)}
               onMouseLeave={() => setHoveredPromo(null)}
             >
               <Card
-                className="overflow-hidden h-full hover-elevate"
+                className="group overflow-hidden h-full bg-white dark:bg-slate-900 border border-border rounded-2xl shadow-sm hover:shadow-xl transition-all duration-500"
                 data-testid={`card-promo-${promo.id}`}
               >
                 <div className="grid md:grid-cols-2 h-full">
-                  <div className="relative aspect-square md:aspect-auto bg-gradient-to-br from-muted to-muted/50 p-6 flex items-center justify-center">
+                  <div className="relative aspect-square md:aspect-auto bg-gradient-to-br from-slate-50 to-slate-100 dark:from-slate-800 dark:to-slate-900 p-0 flex items-center justify-center overflow-hidden">
                     <img
                       src={promo.image}
                       alt={promo.title}
-                      className={`w-full h-full object-contain transition-transform duration-500 ${
+                      className={`w-full h-full object-contain transition-transform duration-700 ${
                         hoveredPromo === promo.id ? "scale-110" : ""
                       }`}
                     />
-                    <Badge className="absolute top-4 left-4" data-testid={`badge-promo-${promo.id}`}>
+                    <span className="absolute top-4 left-4 tag-orange" data-testid={`badge-promo-${promo.id}`}>
                       {promo.badge}
-                    </Badge>
+                    </span>
                   </div>
-                  <div className="p-6 flex flex-col">
-                    <h3 className="font-bold text-xl mb-2">{promo.title}</h3>
-                    <p className="text-muted-foreground text-sm mb-4 flex-1">{promo.description}</p>
+                  <div className="p-8 flex flex-col">
+                    <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">{promo.title}</h3>
+                    <p className="text-muted-foreground leading-relaxed mb-6 flex-1">{promo.description}</p>
                     
                     <div className="space-y-3 mb-6">
-                      <div className="flex items-center gap-2 text-primary font-semibold">
-                        <Percent className="w-4 h-4" />
+                      <div className="flex items-center gap-2 text-primary font-bold text-lg">
+                        <Percent className="w-5 h-5" />
                         <span>{promo.discount}</span>
                       </div>
                       <div className="flex items-center gap-2 text-sm text-muted-foreground">
@@ -98,17 +96,17 @@ export default function PromotionsSection({ id, onContactClick }: PromotionsSect
                       </div>
                     </div>
 
-                    <ul className="space-y-1 mb-6">
+                    <ul className="space-y-2 mb-6">
                       {promo.features.map((feature) => (
                         <li key={feature} className="text-sm text-muted-foreground flex items-center gap-2">
-                          <span className="w-1 h-1 bg-primary rounded-full" />
+                          <span className="w-1.5 h-1.5 bg-primary rounded-full" />
                           {feature}
                         </li>
                       ))}
                     </ul>
 
                     <Button
-                      className="w-full gap-2"
+                      className="w-full gap-2 rounded-full h-12"
                       onClick={onContactClick}
                       data-testid={`button-promo-${promo.id}`}
                     >
@@ -121,6 +119,37 @@ export default function PromotionsSection({ id, onContactClick }: PromotionsSect
             </motion.div>
           ))}
         </div>
+
+        {/* CTA Banner */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="cta-section bg-primary rounded-3xl mt-16"
+        >
+          <div className="cta-content text-white px-8">
+            <h3 className="text-3xl md:text-4xl font-bold mb-4">
+              Präzision erleben – Projekte meistern.
+            </h3>
+            <p className="text-xl text-white/80 mb-8 max-w-2xl">
+              Kompetente Beratung und erstklassige TRUMPF Elektrowerkzeuge für Baden-Württemberg und Bayern. Wir sind Ihr Partner vor Ort.
+            </p>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg" 
+                onClick={onContactClick}
+                className="h-14 px-10 text-lg rounded-full bg-white text-primary hover:bg-slate-100 shadow-2xl"
+              >
+                Jetzt Beratung anfordern
+              </Button>
+              <div 
+                className="h-14 px-10 text-lg rounded-full border border-white/30 text-white bg-transparent flex items-center justify-center transition-colors"
+              >
+                <Phone className="mr-2 w-5 h-5 text-white" /> +49 7141 921 912
+              </div>
+            </div>
+          </div>
+        </motion.div>
       </div>
     </section>
   );

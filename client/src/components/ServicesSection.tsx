@@ -12,6 +12,7 @@ const services = [
     features: ["Vollständiges Sortiment", "Fachkundige Beratung", "Schnelle Lieferung"],
     cta: "Produkte ansehen",
     ctaHref: "#produkte",
+    gradient: "from-blue-500/10 to-cyan-500/10",
   },
   {
     id: "wartung",
@@ -21,6 +22,7 @@ const services = [
     features: ["Präventive Wartung", "Verschleißteilprüfung", "Wartungsprotokolle"],
     cta: "Wartung anfragen",
     ctaHref: "#kontakt",
+    gradient: "from-green-500/10 to-emerald-500/10",
   },
   {
     id: "reparatur",
@@ -30,6 +32,7 @@ const services = [
     features: ["Express-Service", "Original Ersatzteile", "Funktionsprüfung"],
     cta: "Reparatur beauftragen",
     ctaHref: "#kontakt",
+    gradient: "from-orange-500/10 to-red-500/10",
   },
   {
     id: "beratung",
@@ -39,6 +42,7 @@ const services = [
     features: ["Kostenlose Erstberatung", "Anwendungsberatung", "Telefonsupport"],
     cta: "Beratung anfordern",
     ctaHref: "#kontakt",
+    gradient: "from-purple-500/10 to-pink-500/10",
   },
 ];
 
@@ -49,43 +53,50 @@ interface ServicesSectionProps {
 
 export default function ServicesSection({ id, onNavigate }: ServicesSectionProps) {
   return (
-    <section id={id} className="py-20 lg:py-32 bg-background" data-testid="section-services">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-4" data-testid="text-services-title">
-            TRUMPF TruTool Leistungen
+    <section id={id} className="section bg-slate-50 dark:bg-slate-950" data-testid="section-services">
+      <div className="container mx-auto px-4">
+        <div className="section-header section-header-center">
+          <span className="section-label">Unsere Leistungen</span>
+          <h2 className="section-title" data-testid="text-services-title">
+            Ganzheitliche Lösungen für Ihre Werkzeuge
           </h2>
-          <p className="text-muted-foreground text-lg max-w-2xl mx-auto" data-testid="text-services-subtitle">
+          <p className="section-subtitle" data-testid="text-services-subtitle">
             Ihr kompetenter Partner für professionelle Elektrowerkzeuge – von der Beratung bis zur Wartung.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        <div className="card-grid-2">
           {services.map((service, index) => (
             <motion.div
               key={service.id}
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: index * 0.1 }}
+              transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card className="p-6 h-full flex flex-col" data-testid={`card-service-${service.id}`}>
-                <div className="w-12 h-12 rounded-md bg-primary/10 flex items-center justify-center mb-4">
-                  <service.icon className="w-6 h-6 text-primary" />
+              <Card 
+                className="group relative p-8 h-full flex flex-col bg-white dark:bg-slate-900 border border-border rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden" 
+                data-testid={`card-service-${service.id}`}
+              >
+                {/* Hover Gradient Background */}
+                <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`} />
+                
+                <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner">
+                  <service.icon className="w-7 h-7 text-primary" />
                 </div>
-                <h3 className="font-semibold text-xl mb-2">{service.title}</h3>
-                <p className="text-muted-foreground mb-4 flex-1">{service.description}</p>
-                <ul className="space-y-2 mb-6">
+                <h3 className="font-bold text-xl mb-3 group-hover:text-primary transition-colors">{service.title}</h3>
+                <p className="text-muted-foreground leading-relaxed mb-6 flex-1">{service.description}</p>
+                <ul className="check-list mb-6">
                   {service.features.map((feature) => (
-                    <li key={feature} className="flex items-center gap-2 text-sm">
-                      <Check className="w-4 h-4 text-primary flex-shrink-0" />
-                      <span>{feature}</span>
+                    <li key={feature}>
+                      <Check className="check-list-icon" />
+                      <span className="font-medium">{feature}</span>
                     </li>
                   ))}
                 </ul>
                 <Button
                   variant="ghost"
-                  className="justify-start p-0 h-auto gap-1"
+                  className="justify-start p-0 h-auto gap-2 text-primary font-medium group-hover:translate-x-2 transition-transform"
                   onClick={() => onNavigate?.(service.ctaHref.replace("#", ""))}
                   data-testid={`button-service-${service.id}`}
                 >

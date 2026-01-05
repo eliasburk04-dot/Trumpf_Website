@@ -1,16 +1,7 @@
-import { Card } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
-import { MapPin, Clock, Award, Users } from "lucide-react";
+import { CheckCircle2 } from "lucide-react";
 import { motion } from "framer-motion";
 import workshopImage from "@assets/generated_images/modern_workshop_facility_interior.png";
 import craftsmanImage from "@assets/generated_images/craftsman_precision_work_closeup.png";
-
-const stats = [
-  { icon: Award, value: "30+", label: "Jahre Erfahrung" },
-  { icon: Users, value: "1000+", label: "Zufriedene Kunden" },
-  { icon: MapPin, value: "BW", label: "Regional tätig" },
-  { icon: Clock, value: "24h", label: "Antwortzeit" },
-];
 
 interface AboutSectionProps {
   id?: string;
@@ -18,49 +9,47 @@ interface AboutSectionProps {
 
 export default function AboutSection({ id }: AboutSectionProps) {
   return (
-    <section id={id} className="py-20 lg:py-32 bg-card" data-testid="section-about">
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+    <section id={id} className="section bg-white dark:bg-slate-900" data-testid="section-about">
+      <div className="container mx-auto px-4">
+        <div className="split-layout">
+          {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
+            className="content-block"
           >
-            <Badge variant="secondary" className="mb-4">Über uns</Badge>
-            <h2 className="text-3xl lg:text-4xl font-bold tracking-tight mb-6" data-testid="text-about-title">
-              Ihr Partner für TRUMPF Elektrowerkzeuge in Baden-Württemberg
+            <span className="section-label">Über uns</span>
+            <h2 className="section-title" data-testid="text-about-title">
+              Ihr Partner für TRUMPF Elektrowerkzeuge
             </h2>
-            <p className="text-muted-foreground text-lg mb-6" data-testid="text-about-description">
+            <p className="text-lg text-muted-foreground" data-testid="text-about-description">
               Die Thomas Burk GmbH ist Ihr zuverlässiger Partner für TRUMPF TruTool Elektrowerkzeuge 
-              in der Region Ludwigsburg und ganz Baden-Württemberg. Als Meisterbetrieb verbinden wir 
+              in ganz Baden-Württemberg und Bayern. Als Meisterbetrieb verbinden wir 
               fundiertes Fachwissen mit persönlicher Beratung.
             </p>
-            <p className="text-muted-foreground mb-8">
+            <p className="text-lg text-muted-foreground">
               Unser Team aus erfahrenen Fachleuten für Elektrotechnik, Feinwerkmechanik und CNC-Technik 
-              steht Ihnen bei allen Fragen rund um professionelle Elektrowerkzeuge zur Seite – von der 
-              Beratung über den Verkauf bis hin zu Wartung und Reparatur.
+              steht Ihnen bei allen Fragen rund um professionelle Elektrowerkzeuge zur Seite.
             </p>
 
-            <div className="grid grid-cols-2 sm:grid-cols-4 gap-4">
-              {stats.map((stat, index) => (
-                <motion.div
-                  key={stat.label}
-                  initial={{ opacity: 0, y: 20 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ duration: 0.4, delay: index * 0.1 }}
-                >
-                  <Card className="p-4 text-center" data-testid={`stat-${stat.label.toLowerCase().replace(/\s+/g, "-")}`}>
-                    <stat.icon className="w-5 h-5 text-primary mx-auto mb-2" />
-                    <div className="text-2xl font-bold">{stat.value}</div>
-                    <div className="text-xs text-muted-foreground">{stat.label}</div>
-                  </Card>
-                </motion.div>
+            <ul className="check-list mt-8">
+              {[
+                "Offizieller TRUMPF Partner seit über 30 Jahren",
+                "Individuelle Lösungskonzepte für Ihr Handwerk",
+                "Höchste Zuverlässigkeit & Termintreue",
+                "Express-Service bei Reparaturen"
+              ].map((item, i) => (
+                <li key={i}>
+                  <CheckCircle2 className="check-list-icon" />
+                  <span className="font-medium">{item}</span>
+                </li>
               ))}
-            </div>
+            </ul>
           </motion.div>
 
+          {/* Right: Images */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -70,7 +59,7 @@ export default function AboutSection({ id }: AboutSectionProps) {
           >
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
-                <div className="aspect-[4/5] rounded-md overflow-hidden">
+                <div className="image-frame-floating aspect-[4/5]">
                   <img
                     src={workshopImage}
                     alt="Moderne Werkstatt"
@@ -79,7 +68,7 @@ export default function AboutSection({ id }: AboutSectionProps) {
                 </div>
               </div>
               <div className="space-y-4 pt-8">
-                <div className="aspect-[4/5] rounded-md overflow-hidden">
+                <div className="image-frame-floating aspect-[4/5]">
                   <img
                     src={craftsmanImage}
                     alt="Präzisionsarbeit"
@@ -88,12 +77,12 @@ export default function AboutSection({ id }: AboutSectionProps) {
                 </div>
               </div>
             </div>
-            <Card className="absolute -bottom-6 left-1/2 -translate-x-1/2 p-4 bg-primary text-primary-foreground">
+            <div className="absolute -bottom-6 left-1/2 -translate-x-1/2 px-8 py-4 bg-primary text-primary-foreground rounded-2xl shadow-xl">
               <div className="text-center">
                 <div className="font-bold text-lg">Meisterbetrieb</div>
                 <div className="text-sm text-primary-foreground/80">seit 1990</div>
               </div>
-            </Card>
+            </div>
           </motion.div>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import { Button } from "@/components/ui/button";
-import { Badge } from "@/components/ui/badge";
-import { ArrowRight, ChevronDown } from "lucide-react";
-import { motion } from "framer-motion";
+import { ArrowRight, Phone, Award, MapPin, ShieldCheck, Sparkles } from "lucide-react";
+import { motion, useScroll, useTransform } from "framer-motion";
 import heroImage from "@assets/generated_images/hero_power_tool_action_shot.png";
 
 interface HeroProps {
@@ -10,91 +9,85 @@ interface HeroProps {
 }
 
 export default function Hero({ onExploreProducts, onContactUs }: HeroProps) {
-  const handleScrollDown = () => {
-    window.scrollTo({ top: window.innerHeight, behavior: "smooth" });
-  };
+  const { scrollY } = useScroll();
+  const heroY = useTransform(scrollY, [0, 500], [0, 150]);
+  const heroOpacity = useTransform(scrollY, [0, 400], [1, 0]);
 
   return (
     <section
-      className="relative min-h-screen flex items-center justify-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden bg-slate-900"
       data-testid="section-hero"
     >
-      <div
-        className="absolute inset-0 bg-cover bg-center bg-no-repeat"
-        style={{ backgroundImage: `url(${heroImage})` }}
-      />
-      <div className="absolute inset-0 bg-gradient-to-r from-black/80 via-black/60 to-black/40" />
-      <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-      <div className="relative z-10 max-w-7xl mx-auto px-6 lg:px-8 py-32 lg:py-40">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8 }}
-          className="max-w-3xl"
-        >
-          <Badge
-            variant="secondary"
-            className="mb-6 bg-white/10 text-white border-white/20 backdrop-blur-sm"
-            data-testid="badge-partner"
-          >
-            Offizieller TRUMPF Partner
-          </Badge>
-
-          <h1
-            className="text-4xl sm:text-5xl lg:text-6xl xl:text-7xl font-bold text-white tracking-tight leading-[1.1] mb-6"
-            data-testid="text-hero-title"
-          >
-            Effiziente Lösungen für{" "}
-            <span className="text-primary">Elektrotechnik & CNC</span>
-          </h1>
-
-          <p
-            className="text-lg lg:text-xl text-white/80 leading-relaxed max-w-2xl mb-8"
-            data-testid="text-hero-description"
-          >
-            Wir unterstützen Industrie und Handwerk mit geprüften TRUMPF Elektrowerkzeugen, 
-            fachkundiger Beratung und verlässlichem Service – aus Ludwigsburg für Baden-Württemberg.
-          </p>
-
-          <div className="flex flex-wrap gap-4">
-            <Button
-              size="lg"
-              className="gap-2"
-              onClick={onExploreProducts}
-              data-testid="button-produkte"
-            >
-              Produkte ansehen
-              <ArrowRight className="w-4 h-4" />
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="bg-white/10 border-white/30 text-white backdrop-blur-sm hover:bg-white/20"
-              onClick={onContactUs}
-              data-testid="button-beratung"
-            >
-              Beratung anfordern
-            </Button>
-          </div>
-
-          <div className="flex flex-wrap items-center gap-2 mt-8">
-            <span className="w-2 h-2 bg-green-500 rounded-full animate-pulse" />
-            <span className="text-sm text-white/60">Heute verfügbar bis 17:00 Uhr</span>
-          </div>
-        </motion.div>
-      </div>
-
-      <motion.button
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        onClick={handleScrollDown}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 text-white/60 hover:text-white transition-colors"
-        data-testid="button-scroll-down"
+      <motion.div 
+        style={{ y: heroY, opacity: heroOpacity }}
+        className="absolute inset-0 z-0"
       >
-        <ChevronDown className="w-8 h-8 animate-bounce" />
-      </motion.button>
+        <div className="absolute inset-0 bg-gradient-to-r from-slate-900/95 via-slate-900/50 to-transparent z-10" />
+        <img 
+          src={heroImage} 
+          alt="TRUMPF TruTool Elektrowerkzeuge" 
+          className="w-full h-full object-cover scale-105"
+        />
+      </motion.div>
+
+      <div className="container relative z-20 text-white py-32">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+          {/* Linke Spalte: Text-Content */}
+          <motion.div 
+            initial={{ opacity: 0, x: -30 }}
+            animate={{ opacity: 1, x: 0 }}
+            transition={{ duration: 0.8, ease: "easeOut" }}
+            className="pl-4 md:pl-12 lg:pl-20"
+          >
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-sm font-medium mb-8">
+              <Sparkles className="w-4 h-4 text-primary" />
+              <span>Offizieller TRUMPF Partner</span>
+            </div>
+            
+            <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-[1.1] mb-8 tracking-tight">
+              Präzision <br />
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 via-primary to-cyan-400">
+                die bewegt.
+              </span>
+            </h1>
+            
+            <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-xl">
+              Professionelle TRUMPF TruTool Elektrowerkzeuge für Industrie und Handwerk. 
+              Fachkundige Beratung, erstklassiger Service, verlässliche Qualität.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4 mb-12">
+              <Button 
+                size="lg" 
+                onClick={onExploreProducts}
+                className="h-14 px-8 text-lg rounded-full bg-primary hover:bg-primary/90 shadow-xl shadow-primary/25 hover:shadow-primary/40 transition-all hover:scale-105"
+              >
+                Produkte ansehen <ArrowRight className="ml-2 w-5 h-5" />
+              </Button>
+              <div 
+                className="h-14 px-8 text-lg rounded-full border border-white/30 text-white bg-transparent flex items-center justify-center transition-colors"
+              >
+                <Phone className="mr-2 w-5 h-5 text-primary" /> +49 7141 921 912
+              </div>
+            </div>
+
+            {/* Trust Indicators */}
+            <div className="flex flex-wrap items-center gap-8 pt-8 border-t border-white/20">
+              <div className="flex items-center gap-2 text-slate-300">
+                <Award className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium">Offizieller Partner</span>
+              </div>
+              <div className="flex items-center gap-2 text-slate-300">
+                <MapPin className="w-5 h-5 text-primary" />
+                <span className="text-sm font-medium">Baden-Württemberg & Bayern</span>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Rechte Spalte: Bleibt frei für Bild-Fokus */}
+          <div className="hidden lg:block" />
+        </div>
+      </div>
     </section>
   );
 }

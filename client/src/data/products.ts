@@ -1,6 +1,6 @@
 import { Product } from "@/components/ProductCard";
 
-const productImages = import.meta.glob('../assets/products/*.{png,jpg,jpeg,webp}', { eager: true, import: 'default' });
+const productImages = import.meta.glob('../assets/products/*.{png,jpg,jpeg,webp,avif}', { eager: true, import: 'default' });
 
 function getProductImage(slug: string): string {
   // Try to find an image that matches the slug
@@ -51,7 +51,6 @@ export const products: Product[] = [
       "abmessungen_mm": "357 x 88"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-c-200",
@@ -79,7 +78,6 @@ export const products: Product[] = [
       "abmessungen_mm": "394 x 119"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-c-250",
@@ -101,7 +99,6 @@ export const products: Product[] = [
       "spannung_V": "Netz / 18"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-s-114",
@@ -126,7 +123,6 @@ export const products: Product[] = [
       "abmessungen_mm": "380 x 95"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-s-160",
@@ -151,7 +147,6 @@ export const products: Product[] = [
       "abmessungen_mm": "295 x 156"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-s-250",
@@ -176,7 +171,6 @@ export const products: Product[] = [
       "abmessungen_mm": "325 x 188"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-s-450",
@@ -201,7 +195,6 @@ export const products: Product[] = [
       "abmessungen_mm": "334 x 280"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-n-160",
@@ -229,7 +222,6 @@ export const products: Product[] = [
       "abmessungen_mm": "307 x 170"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-n-200",
@@ -256,7 +248,6 @@ export const products: Product[] = [
       "abmessungen_mm": "267 x 155"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-n-350",
@@ -283,7 +274,6 @@ export const products: Product[] = [
       "abmessungen_mm": "381 x 227"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-n-500",
@@ -310,7 +300,6 @@ export const products: Product[] = [
       "abmessungen_mm": "381 x 235"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-n-700",
@@ -337,7 +326,6 @@ export const products: Product[] = [
       "abmessungen_mm": "468 x 319"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-n-1000",
@@ -364,7 +352,6 @@ export const products: Product[] = [
       "abmessungen_mm": "645 x 301"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-pn-200",
@@ -391,7 +378,6 @@ export const products: Product[] = [
       "abmessungen_mm": "267 x 147"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-pn-201",
@@ -418,7 +404,6 @@ export const products: Product[] = [
       "abmessungen_mm": "267 x 317"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tpc-165",
@@ -442,7 +427,6 @@ export const products: Product[] = [
       "abmessungen_mm": "493 x 231"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-f-125",
@@ -465,7 +449,6 @@ export const products: Product[] = [
       "abmessungen_mm": "279 x 149"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-f-140",
@@ -488,7 +471,6 @@ export const products: Product[] = [
       "abmessungen_mm": "321 x 257"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-f-300",
@@ -511,7 +493,6 @@ export const products: Product[] = [
       "abmessungen_mm": "285 x 406 / 285 x 391 (Variante)"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-f-301",
@@ -534,7 +515,6 @@ export const products: Product[] = [
       "abmessungen_mm": "285 x 356"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tf-350",
@@ -556,7 +536,6 @@ export const products: Product[] = [
       "gewicht_kg": 8.3
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tka-700",
@@ -579,7 +558,6 @@ export const products: Product[] = [
       "abmessungen_mm": "397 x 149"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tka-1500",
@@ -602,7 +580,6 @@ export const products: Product[] = [
       "abmessungen_mm": "679 x 197"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tkf-700",
@@ -625,7 +602,6 @@ export const products: Product[] = [
       "abmessungen_mm": "342 x 240"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tkf-1500",
@@ -648,7 +624,6 @@ export const products: Product[] = [
       "abmessungen_mm": "554 x 360"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-ps-100",
@@ -670,7 +645,6 @@ export const products: Product[] = [
       "abmessungen_mm": "223 x 88"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tsc-100",
@@ -694,7 +668,6 @@ export const products: Product[] = [
       "abmessungen_mm": "2104 x 342"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tsc-200",
@@ -718,25 +691,6 @@ export const products: Product[] = [
       "abmessungen_mm": "2002 x 430"
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
-  },
-  {
-    id: "trutool-fcn-250",
-    name: "TruTool FCN 250",
-    category: "Fiber Composite Nibbler",
-    description: "Faserverbundwerkstoffe präzise trennen – ausrissarm und sauber.",
-    price: "Auf Anfrage",
-    image: getProductImage("trutool-fcn-250"),
-    longDescription: "Der TruTool FCN 250 ist für Faserverbundwerkstoffe optimiert. Er trennt ausrissarm und liefert saubere Sichtkanten. Damit eignet er sich für CFK/GFK‑Bauteile in Industrie und Sportgerätebau.",
-    highlights: [
-      "Ausrissarme Schnittkanten",
-      "Saubere Sichtkante",
-      "Prozesssicher",
-      "Einfache Führung"
-    ],
-    accessories: ["Spezialstempel/‑matrize", "Führung"],
-    ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   },
   {
     id: "trutool-tc-200",
@@ -757,6 +711,5 @@ export const products: Product[] = [
       "spannung_V": 18
     },
     ctaPrimary: "Jetzt anfragen",
-    ctaSecondary: "Datenblatt anfordern"
   }
 ];
