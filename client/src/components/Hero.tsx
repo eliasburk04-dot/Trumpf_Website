@@ -20,7 +20,11 @@ export default function Hero({ onExploreProducts, onContactUs }: HeroProps) {
         <img
           src={heroImage}
           alt="TRUMPF TruTool Elektrowerkzeuge im industriellen Einsatz"
-          className="w-full h-full object-cover scale-105"
+          className="w-full h-full object-cover object-center"
+          style={{
+            filter: "contrast(1.06) saturate(1.04)",
+            imageRendering: "-webkit-optimize-contrast",
+          }}
           loading="eager"
           decoding="sync"
           fetchPriority="high"

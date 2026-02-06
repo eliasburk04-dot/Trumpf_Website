@@ -34,7 +34,7 @@ export default function ProductsSection({ id }: ProductsSectionProps) {
           <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto" data-testid="text-products-parts-note">
             Original-Ersatzteile und Verschleißteile für TRUMPF Maschinen - Verfügbarkeit auf Anfrage.
           </p>
-          <Button variant="link" size="sm" className="mt-1 h-auto p-0" asChild>
+          <Button variant="ghost" size="sm" className="mt-1 h-auto p-0 text-primary hover:bg-transparent hover:underline" asChild>
             <a href="/#kontakt" data-testid="link-products-parts-inquiry">Teile anfragen</a>
           </Button>
         </div>
