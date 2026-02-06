@@ -20,7 +20,7 @@ const features = [
     icon: Award,
     title: "Service mit Verantwortung",
     description:
-      "Beratung, Inbetriebnahme und Wartung aus einer Hand für kurze Reaktionszeiten.",
+      "Beratung aus einer Hand plus zuverlässige Lieferung von Original-Ersatzteilen und Verschleißteilen auf Anfrage.",
   },
   {
     icon: Globe,

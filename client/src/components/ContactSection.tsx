@@ -17,6 +17,7 @@ import { Phone, Mail, MapPin, Clock, CheckCircle2, Loader2 } from "lucide-react"
 import { motion } from "framer-motion";
 
 const subjects = [
+  "Original-Ersatzteile & Verschleißteile",
   "Produktberatung",
   "Angebot anfragen",
   "Wartung und Service",
@@ -210,6 +211,9 @@ export default function ContactSection({ id }: ContactSectionProps) {
                         ))}
                       </SelectContent>
                     </Select>
+                    <p className="text-xs text-muted-foreground" data-testid="text-contact-subject-help">
+                      Für schnelle Zuordnung bitte Maschine, Teilenummer (falls bekannt) und Stückzahl angeben.
+                    </p>
                   </div>
 
                   <div className="space-y-2">
@@ -278,7 +282,7 @@ export default function ContactSection({ id }: ContactSectionProps) {
             <Card className="p-8 bg-primary text-primary-foreground rounded-2xl h-full">
               <h3 className="font-bold text-xl mb-6">Direkter Kontakt</h3>
               <p className="text-primary-foreground/80 mb-8">
-                Unser Team unterstützt Sie bei Auswahl, Inbetriebnahme und Service.
+                Unser Team unterstützt Sie bei Auswahl, Original-Ersatzteilen und Verschleißteilen.
               </p>
 
               <div className="space-y-6">
@@ -344,6 +348,10 @@ export default function ContactSection({ id }: ContactSectionProps) {
                   <div className="flex items-center gap-3">
                     <CheckCircle2 className="w-5 h-5 text-green-300" />
                     <span>Praxisnahe Lösungsvorschläge</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle2 className="w-5 h-5 text-green-300" />
+                    <span>Original-Ersatzteile & Verschleißteile auf Anfrage</span>
                   </div>
                 </div>
               </div>

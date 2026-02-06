@@ -89,20 +89,20 @@ export const products: Product[] = [
     id: "trutool-c-250",
     name: "TruTool C 250",
     category: "Schlitzscheren",
-    description: "Schnelle Schlitzschere für lange Schnitte – optional mit Spanabtrennung.",
+    description: "Schnelle Schlitzschere für lange Schnitte mit Spanabtrennung.",
     price: "Auf Anfrage",
     image: getProductImage("trutool-c-250"),
-    longDescription: "Die TruTool C 250 ist für Tempo auf langen, geraden Schnitten konzipiert und erzeugt glatte, gratarme Kanten. Mit optionalem Spanabtrenner eignet sie sich hervorragend für Innenausschnitte und Ausklinkungen. Die robuste Mechanik sorgt für lange Standzeiten, während die kompakte Bauform eine sichere Führung ermöglicht. Erhältlich als Netz‑ und Akkuvariante.",
+    longDescription: "Die TruTool C 250 ist für Tempo auf langen, geraden Schnitten konzipiert und erzeugt glatte, gratarme Kanten. Mit Spanabtrenner eignet sie sich hervorragend für Innenausschnitte und Ausklinkungen. Die robuste Mechanik sorgt für lange Standzeiten, während die kompakte Bauform eine sichere Führung ermöglicht. Erhältlich als Akkuvariante.",
     highlights: [
       "Sehr hohe Schnittgeschwindigkeit",
-      "Optionaler Spanabtrenner",
+      "Spanabtrenner",
       "Robuste Mechanik, lange Standzeiten",
       "Gute Sicht auf die Schnittlinie",
-      "Netz- und Akkuvarianten verfügbar"
+      "Akkuvariante verfügbar"
     ],
     accessories: ["Messer gerade/kurve", "Spanabtrenner", "18V Akku/ Ladegerät"],
     specs: {
-      "spannung_V": "Netz / 18"
+      "spannung_V": 18
     },
     ctaPrimary: "Jetzt anfragen",
   },
@@ -161,12 +161,12 @@ export const products: Product[] = [
     description: "Universelle Schere für Standardanwendungen – schnell und präzise.",
     price: "Auf Anfrage",
     image: getProductImage("trutool-s-250"),
-    longDescription: "Die TruTool S 250 deckt ein breites Anwendungsspektrum ab, von geraden Schnitten bis zu weiten Radien. Sie verbindet hohe Schnittgeschwindigkeit mit reproduzierbarer Kantenqualität und ist als Netz‑ oder 18V‑Akkuvariante verfügbar. Dank guter Balance liegt sie sicher in der Hand und unterstützt ermüdungsarmes Arbeiten.",
+    longDescription: "Die TruTool S 250 deckt ein breites Anwendungsspektrum ab, von geraden Schnitten bis zu weiten Radien. Sie verbindet hohe Schnittgeschwindigkeit mit reproduzierbarer Kantenqualität und ist als 18V‑Akkuvariante verfügbar. Dank guter Balance liegt sie sicher in der Hand und unterstützt ermüdungsarmes Arbeiten.",
     highlights: [
       "Schnell und universell",
       "Saubere Kanten",
       "Radienfähig",
-      "Netz- und Akkuausführung",
+      "Akkuvariante verfügbar",
       "Ergonomische Bauform"
     ],
     accessories: ["Ersatzmesser", "Führung", "18V Akku/ Ladegerät"],

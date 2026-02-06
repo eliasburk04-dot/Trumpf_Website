@@ -50,6 +50,7 @@ export default function Hero({ onExploreProducts, onContactUs }: HeroProps) {
             <p className="text-xl text-slate-300 leading-relaxed mb-10 max-w-xl">
               Professionelle TRUMPF TruTool Elektrowerkzeuge für Industrie und Handwerk.
               Verlässliche Beratung, planbarer Service und hohe Prozesssicherheit.
+              Original-Ersatzteile und Verschleißteile liefern wir für TRUMPF Maschinen auf Anfrage.
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 mb-12">

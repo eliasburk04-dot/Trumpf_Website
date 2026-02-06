@@ -31,6 +31,12 @@ export default function ProductsSection({ id }: ProductsSectionProps) {
           <p className="section-subtitle max-w-2xl mx-auto" data-testid="text-products-subtitle">
             Professionelle Elektrowerkzeuge für hohe Ansprüche in der Metallverarbeitung.
           </p>
+          <p className="text-sm text-muted-foreground mt-3 max-w-2xl mx-auto" data-testid="text-products-parts-note">
+            Original-Ersatzteile und Verschleißteile für TRUMPF Maschinen - Verfügbarkeit auf Anfrage.
+          </p>
+          <Button variant="link" size="sm" className="mt-1 h-auto p-0" asChild>
+            <a href="/#kontakt" data-testid="link-products-parts-inquiry">Teile anfragen</a>
+          </Button>
         </div>
 
         <div className="flex flex-wrap justify-center gap-2 mb-14" data-testid="filter-categories">

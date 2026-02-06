@@ -46,7 +46,7 @@ export default function Home() {
         <title>Thomas Burk GmbH | TRUMPF Elektrowerkzeuge für Industrie und Handwerk</title>
         <meta
           name="description"
-          content="TRUMPF TruTool Elektrowerkzeuge für Baden-Württemberg und Bayern: Beratung, Verkauf, Service und Reparatur durch die Thomas Burk GmbH."
+          content="TRUMPF TruTool Elektrowerkzeuge für Baden-Württemberg und Bayern: Beratung, Verkauf, Service, Reparatur sowie Original-Ersatzteile und Verschleißteile auf Anfrage durch die Thomas Burk GmbH."
         />
         <meta property="og:title" content="Thomas Burk GmbH | TRUMPF Elektrowerkzeuge" />
         <meta

@@ -140,6 +140,9 @@ export default function ProductModal({ product, open, onClose }: ProductModalPro
                   </a>
                 </Button>
               </div>
+              <p className="text-sm text-muted-foreground mt-3" data-testid="text-modal-parts-note">
+                Original-Ersatzteile und Verschleißteile auf Anfrage verfügbar.
+              </p>
             </div>
 
             <Tabs defaultValue="specs" className="w-full">

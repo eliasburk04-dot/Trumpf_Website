@@ -5,6 +5,7 @@ const footerLinks = {
     { label: "Beratung und Verkauf", href: "/#leistungen" },
     { label: "Wartung und Service", href: "/#leistungen" },
     { label: "Reparatur", href: "/#leistungen" },
+    { label: "Original-Ersatzteile & Verschleißteile", href: "/#kontakt" },
     { label: "Produktübersicht", href: "/produkte" },
     { label: "Aktuelle Aktionen", href: "/aktionen" },
   ],
@@ -31,6 +32,7 @@ export default function Footer() {
             <p className="text-slate-400 leading-relaxed mb-6">
               Ihr zertifizierter Partner für TRUMPF TruTool Elektrowerkzeuge in Baden-Württemberg
               und Bayern. Beratung, Verkauf, Wartung und Reparatur für professionelle Anwendungen.
+              Lieferung von Original-Ersatzteilen und Verschleißteilen auf Anfrage.
             </p>
             <div className="flex gap-4">
               <a
