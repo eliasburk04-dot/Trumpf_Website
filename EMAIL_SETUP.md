@@ -22,6 +22,17 @@ EMAIL_PASSWORD=IhrAppPasswortHier
 EMAIL_RECIPIENT=burk-trutools@web.de
 ```
 
+### Option C: Vercel (Produktion)
+
+Im Vercel-Dashboard:
+
+1. Projekt oeffnen -> Settings -> Environment Variables
+2. Diese Variablen fuer Production (und optional Preview) anlegen:
+   - EMAIL_USER
+   - EMAIL_PASSWORD
+   - EMAIL_RECIPIENT
+3. Danach ein neues Deployment starten (Redeploy).
+
 ### Option B: Direkt im Code (Nicht empfohlen für Produktion)
 
 In `server/routes.ts` können Sie das Passwort direkt eintragen:

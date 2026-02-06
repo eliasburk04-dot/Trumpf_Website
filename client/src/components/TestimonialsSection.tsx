@@ -7,29 +7,29 @@ import { motion } from "framer-motion";
 const testimonials = [
   {
     id: 1,
-    name: "Marcus Weber",
-    role: "Production Manager",
+    name: "Markus Weber",
+    role: "Produktionsleiter",
     company: "Weber Metallbau GmbH",
     quote:
-      "The TruTool N 700 has transformed our sheet metal workflow. The precision and speed are unmatched. We've reduced cutting time by 40%.",
+      "Mit der TruTool N 700 haben wir die Schnittzeiten in starken Blechen deutlich reduziert. Die Kantenqualität ist stabil und reproduzierbar.",
     rating: 5,
   },
   {
     id: 2,
-    name: "Sarah Mitchell",
-    role: "Workshop Supervisor",
-    company: "Atlantic Shipyards",
+    name: "Julia Schneider",
+    role: "Werkstattleitung",
+    company: "Schneider Anlagenbau",
     quote:
-      "In shipbuilding, you need tools that can handle the toughest conditions. TRUMP bevelers deliver every time, even on thick plate steel.",
+      "Die Kombination aus Beratung, Werkzeugauswahl und Service funktioniert für uns sehr gut. Ausfälle konnten wir messbar senken.",
     rating: 5,
   },
   {
     id: 3,
-    name: "Hans Bergmann",
-    role: "Master Craftsman",
-    company: "Bergmann HVAC Solutions",
+    name: "Daniel Kraus",
+    role: "Meister",
+    company: "Kraus Blechsysteme",
     quote:
-      "After 30 years in the trade, I've used every brand. TRUMP shears give the cleanest cuts I've ever seen. Worth every penny.",
+      "Bei Montageeinsätzen zählt sauberes, schnelles Arbeiten. Die Maschinen sind robust und die Ersatzteilversorgung ist verlässlich.",
     rating: 5,
   },
 ];
@@ -42,26 +42,21 @@ export default function TestimonialsSection({ id }: TestimonialsSectionProps) {
   return (
     <section
       id={id}
-      className="py-20 lg:py-32 bg-card"
+      className="section bg-slate-50 dark:bg-slate-950"
       data-testid="section-testimonials"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2
-            className="text-3xl lg:text-4xl font-bold tracking-tight mb-4"
-            data-testid="text-testimonials-title"
-          >
-            Trusted by Professionals
+      <div className="container mx-auto px-4">
+        <div className="section-header section-header-center">
+          <span className="section-label">Referenzen</span>
+          <h2 className="section-title" data-testid="text-testimonials-title">
+            Rückmeldungen aus der Praxis
           </h2>
-          <p
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
-            data-testid="text-testimonials-subtitle"
-          >
-            See what industry professionals are saying about TRUMP Elektrowerkzeuge.
+          <p className="section-subtitle" data-testid="text-testimonials-subtitle">
+            Stimmen von Kunden aus Metallbau, Anlagenbau und Montage.
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-6">
+        <div className="card-grid-3">
           {testimonials.map((testimonial, index) => (
             <motion.div
               key={testimonial.id}
@@ -71,7 +66,7 @@ export default function TestimonialsSection({ id }: TestimonialsSectionProps) {
               transition={{ duration: 0.4, delay: index * 0.1 }}
             >
               <Card
-                className="p-6 h-full flex flex-col"
+                className="p-6 h-full flex flex-col border border-border bg-white dark:bg-slate-900"
                 data-testid={`card-testimonial-${testimonial.id}`}
               >
                 <Quote className="w-8 h-8 text-primary/20 mb-4" />

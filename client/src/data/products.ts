@@ -1,26 +1,32 @@
 import { Product } from "@/components/ProductCard";
 
-const productImages = import.meta.glob('../assets/products/*.{png,jpg,jpeg,webp,avif}', { eager: true, import: 'default' });
+const productImages = import.meta.glob("../assets/products/*.{png,jpg,jpeg,webp,avif}", {
+  eager: true,
+  import: "default",
+});
 
 function getProductImage(slug: string): string {
-  // Try to find an image that matches the slug
-  // Keys are like "../assets/products/trutool-c-160.jpg"
+  const preferredExtensions = ["avif", "webp", "jpg", "jpeg", "png"];
+  const candidates = Object.entries(productImages).filter(([path]) => {
+    const fileName = path.split("/").pop()?.split(".")[0] ?? "";
+    return fileName === slug || path.includes(`/${slug}-`);
+  });
+
+  if (candidates.length > 0) {
+    candidates.sort(([pathA], [pathB]) => {
+      const extA = pathA.split(".").pop() ?? "";
+      const extB = pathB.split(".").pop() ?? "";
+      return preferredExtensions.indexOf(extA) - preferredExtensions.indexOf(extB);
+    });
+    return candidates[0][1] as string;
+  }
+
   for (const path in productImages) {
-    if (path.includes(`/${slug}.`) || path.includes(`/${slug}-`)) {
-        // strict match for slug at end of path before extension
-        const fileName = path.split('/').pop()?.split('.')[0];
-        if (fileName === slug) {
-            return productImages[path] as string;
-        }
+    if (path.includes(slug)) {
+      return productImages[path] as string;
     }
   }
-  // Fallback: try to find any image containing the slug
-  for (const path in productImages) {
-      if (path.includes(slug)) {
-          return productImages[path] as string;
-      }
-  }
-  
+
   return "";
 }
 

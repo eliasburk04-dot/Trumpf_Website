@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+﻿import { useState, useEffect } from "react";
 import { Menu, X, Phone, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { motion, AnimatePresence } from "framer-motion";
@@ -23,20 +23,18 @@ export function Navigation({ onNavigate }: NavigationProps) {
   const navLinks = [
     { href: "leistungen", label: "Leistungen" },
     { href: "produkte", label: "Produkte", isPage: true },
-    { href: "promotions", label: "Aktionen", isPage: true },
-    { href: "ueber-uns", label: "Über uns" },
+    { href: "aktionen", label: "Aktionen", isPage: true },
+    { href: "branchen", label: "Branchen" },
     { href: "kontakt", label: "Kontakt" },
   ];
 
   const handleNavClick = (href: string, isPage?: boolean) => {
     if (isPage) {
-      setLocation("/" + href);
+      setLocation(`/${href}`);
+    } else if (location !== "/") {
+      setLocation(`/#${href}`);
     } else {
-      if (location !== "/") {
-        setLocation("/#" + href);
-      } else {
-        onNavigate?.(href);
-      }
+      onNavigate?.(href);
     }
     setIsOpen(false);
   };
@@ -46,9 +44,9 @@ export function Navigation({ onNavigate }: NavigationProps) {
       <motion.header
         className={cn(
           "fixed top-0 left-0 right-0 z-50 transition-all duration-300",
-          scrolled || isOpen || location !== "/" 
-            ? "bg-white/90 dark:bg-slate-950/90 backdrop-blur-md border-b border-border shadow-sm py-3" 
-            : "bg-transparent py-5"
+          scrolled || isOpen || location !== "/"
+            ? "bg-white/92 dark:bg-slate-950/92 backdrop-blur-md border-b border-border shadow-sm py-3"
+            : "bg-transparent py-5",
         )}
         initial={{ y: -100 }}
         animate={{ y: 0 }}
@@ -56,40 +54,46 @@ export function Navigation({ onNavigate }: NavigationProps) {
       >
         <div className="container mx-auto px-4 flex items-center justify-between">
           <button
+            type="button"
             onClick={() => {
               if (location !== "/") setLocation("/");
               else handleNavClick("hero");
             }}
             className="flex items-center gap-2 cursor-pointer"
+            aria-label="Startseite"
           >
             <div className="w-10 h-10 bg-primary rounded-md flex items-center justify-center">
               <span className="text-primary-foreground font-bold text-lg">TB</span>
             </div>
             <div className="flex flex-col text-left">
-              <span className={cn(
-                "font-bold text-lg leading-none transition-colors",
-                scrolled || isOpen || location !== "/" ? "text-foreground" : "text-white"
-              )}>
+              <span
+                className={cn(
+                  "font-bold text-lg leading-none transition-colors",
+                  scrolled || isOpen || location !== "/" ? "text-foreground" : "text-white",
+                )}
+              >
                 Thomas Burk GmbH
               </span>
-              <span className={cn(
-                "text-xs font-medium tracking-wider uppercase transition-colors",
-                scrolled || isOpen || location !== "/" ? "text-muted-foreground" : "text-white/80"
-              )}>
+              <span
+                className={cn(
+                  "text-xs font-medium tracking-wider uppercase transition-colors",
+                  scrolled || isOpen || location !== "/" ? "text-muted-foreground" : "text-white/80",
+                )}
+              >
                 TRUMPF Partner
               </span>
             </div>
           </button>
 
-          {/* Desktop Nav */}
-          <nav className="hidden lg:flex items-center gap-8">
+          <nav className="hidden lg:flex items-center gap-8" aria-label="Hauptnavigation">
             {navLinks.map((link) => (
               <button
                 key={link.href}
+                type="button"
                 onClick={() => handleNavClick(link.href, link.isPage)}
                 className={cn(
                   "text-sm font-medium hover:text-primary transition-colors cursor-pointer relative group",
-                  scrolled || location !== "/" ? "text-foreground/80" : "text-white/90"
+                  scrolled || location !== "/" ? "text-foreground/80" : "text-white/90",
                 )}
               >
                 {link.label}
@@ -99,16 +103,17 @@ export function Navigation({ onNavigate }: NavigationProps) {
           </nav>
 
           <div className="hidden lg:flex items-center gap-4">
-            <div 
+            <a
+              href="tel:+497141921912"
               className={cn(
-                "flex items-center gap-2 font-medium text-sm transition-colors",
-                scrolled || location !== "/" ? "text-foreground" : "text-white"
+                "flex items-center gap-2 font-medium text-sm transition-colors hover:text-primary",
+                scrolled || location !== "/" ? "text-foreground" : "text-white",
               )}
             >
               <Phone className="w-4 h-4 text-primary" />
               +49 7141 921 912
-            </div>
-            <Button 
+            </a>
+            <Button
               onClick={() => handleNavClick("kontakt")}
               className="rounded-full px-6 shadow-lg shadow-primary/25 hover:shadow-primary/40 transition-all hover:-translate-y-0.5"
             >
@@ -116,17 +121,21 @@ export function Navigation({ onNavigate }: NavigationProps) {
             </Button>
           </div>
 
-          {/* Mobile Toggle */}
-          <button 
+          <button
+            type="button"
             onClick={() => setIsOpen(!isOpen)}
-            className={cn("lg:hidden p-2 rounded-lg", scrolled || isOpen || location !== "/" ? "text-foreground" : "text-white")}
+            className={cn(
+              "lg:hidden p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
+              scrolled || isOpen || location !== "/" ? "text-foreground" : "text-white",
+            )}
+            aria-label={isOpen ? "Navigation schliessen" : "Navigation oeffnen"}
+            aria-expanded={isOpen}
           >
             {isOpen ? <X /> : <Menu />}
           </button>
         </div>
       </motion.header>
 
-      {/* Mobile Menu */}
       <AnimatePresence>
         {isOpen && (
           <motion.div
@@ -135,10 +144,11 @@ export function Navigation({ onNavigate }: NavigationProps) {
             exit={{ opacity: 0, y: -20 }}
             className="fixed inset-0 z-40 bg-background pt-24 px-4 lg:hidden overflow-y-auto"
           >
-            <nav className="flex flex-col gap-2">
+            <nav className="flex flex-col gap-2" aria-label="Mobile Navigation">
               {navLinks.map((link, i) => (
                 <motion.button
                   key={link.href}
+                  type="button"
                   onClick={() => handleNavClick(link.href, link.isPage)}
                   initial={{ opacity: 0, x: -20 }}
                   animate={{ opacity: 1, x: 0 }}
@@ -148,25 +158,26 @@ export function Navigation({ onNavigate }: NavigationProps) {
                   {link.label}
                 </motion.button>
               ))}
-              
+
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: 0.3 }}
                 className="mt-8 flex flex-col gap-4"
               >
-                <Button 
-                  size="lg" 
+                <Button
+                  size="lg"
                   className="w-full text-lg h-14 rounded-xl"
                   onClick={() => handleNavClick("kontakt")}
                 >
                   Beratung anfordern
                 </Button>
-                <div
+                <a
+                  href="tel:+497141921912"
                   className="w-full text-lg h-14 rounded-xl border border-primary/20 bg-primary/5 text-primary flex items-center justify-center font-bold"
                 >
-                  <Phone className="mr-2 w-5 h-5 pointer-events-none" /> +49 7141 921 912
-                </div>
+                  <Phone className="mr-2 w-5 h-5" /> +49 7141 921 912
+                </a>
               </motion.div>
             </nav>
           </motion.div>

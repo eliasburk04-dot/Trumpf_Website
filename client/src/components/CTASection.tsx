@@ -10,10 +10,10 @@ interface CTASectionProps {
 export default function CTASection({ onFindDealer, onRequestCatalog }: CTASectionProps) {
   return (
     <section
-      className="py-20 lg:py-32 bg-primary text-primary-foreground"
+      className="section bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900 text-white"
       data-testid="section-cta"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
+      <div className="container mx-auto px-4">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -22,37 +22,35 @@ export default function CTASection({ onFindDealer, onRequestCatalog }: CTASectio
           className="text-center"
         >
           <h2
-            className="text-3xl lg:text-4xl font-bold tracking-tight mb-4"
+            className="text-3xl lg:text-5xl font-display font-bold tracking-tight mb-4"
             data-testid="text-cta-title"
           >
-            Ready to Experience Swiss Precision?
+            Projekt besprechen und passende Lösung finden
           </h2>
           <p
-            className="text-primary-foreground/80 text-lg max-w-2xl mx-auto mb-8"
+            className="text-slate-300 text-lg max-w-2xl mx-auto mb-8"
             data-testid="text-cta-subtitle"
           >
-            Connect with an authorized dealer near you or request our comprehensive
-            product catalog to learn more about our professional power tools.
+            Wir beraten zu Werkzeugwahl, Einsatzgrenzen und Servicepaketen für Ihre Fertigung.
           </p>
           <div className="flex flex-wrap justify-center gap-4">
             <Button
               size="lg"
-              variant="secondary"
-              className="gap-2"
+              className="gap-2 rounded-full h-12 px-7"
               onClick={onFindDealer}
               data-testid="button-cta-dealer"
             >
               <MapPin className="w-4 h-4" />
-              Find a Dealer
+              Einsatzgebiet prüfen
             </Button>
             <Button
               size="lg"
               variant="outline"
-              className="gap-2 border-primary-foreground/30 text-primary-foreground hover:bg-primary-foreground/10"
+              className="gap-2 rounded-full h-12 px-7 border-white/40 text-white hover:bg-white/10"
               onClick={onRequestCatalog}
               data-testid="button-cta-catalog"
             >
-              Request Catalog
+              Produktkatalog ansehen
               <ArrowRight className="w-4 h-4" />
             </Button>
           </div>

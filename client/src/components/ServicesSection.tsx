@@ -7,42 +7,46 @@ const services = [
   {
     id: "vertrieb",
     icon: ShoppingBag,
-    title: "Vertrieb & Verkauf",
-    description: "Umfassende Beratung und professioneller Verkauf von TRUMPF TruTool Elektrowerkzeugen für Industrie und Handwerk.",
+    title: "Vertrieb und Verkauf",
+    description:
+      "Umfassende Beratung und professioneller Verkauf von TRUMPF TruTool Elektrowerkzeugen für Industrie und Handwerk.",
     features: ["Vollständiges Sortiment", "Fachkundige Beratung", "Schnelle Lieferung"],
     cta: "Produkte ansehen",
     ctaHref: "#produkte",
-    gradient: "from-blue-500/10 to-cyan-500/10",
+    gradient: "from-slate-200/40 to-slate-100/20",
   },
   {
     id: "wartung",
     icon: Settings,
-    title: "Wartung & Service",
-    description: "Professionelle Wartungsservices zur Verlängerung der Lebensdauer und Sicherstellung optimaler Performance.",
+    title: "Wartung und Service",
+    description:
+      "Professionelle Wartungsservices zur Verlängerung der Lebensdauer und Sicherstellung stabiler Performance.",
     features: ["Präventive Wartung", "Verschleißteilprüfung", "Wartungsprotokolle"],
     cta: "Wartung anfragen",
     ctaHref: "#kontakt",
-    gradient: "from-green-500/10 to-emerald-500/10",
+    gradient: "from-slate-200/40 to-slate-100/20",
   },
   {
     id: "reparatur",
     icon: Wrench,
     title: "Reparatur",
-    description: "Schnelle und fachgerechte Reparaturen von TRUMPF Elektrowerkzeugen durch geschulte Servicetechniker.",
+    description:
+      "Schnelle und fachgerechte Reparaturen von TRUMPF Elektrowerkzeugen durch geschulte Servicetechniker.",
     features: ["Express-Service", "Original Ersatzteile", "Funktionsprüfung"],
     cta: "Reparatur beauftragen",
     ctaHref: "#kontakt",
-    gradient: "from-orange-500/10 to-red-500/10",
+    gradient: "from-slate-200/40 to-slate-100/20",
   },
   {
     id: "beratung",
     icon: MessageSquare,
-    title: "Beratung & Support",
-    description: "Kompetente Beratung und umfassender Support für alle Fragen rund um TRUMPF TruTool Elektrowerkzeuge.",
+    title: "Beratung und Support",
+    description:
+      "Kompetente Beratung und umfassender Support für alle Fragen rund um TRUMPF TruTool Elektrowerkzeuge.",
     features: ["Kostenlose Erstberatung", "Anwendungsberatung", "Telefonsupport"],
     cta: "Beratung anfordern",
     ctaHref: "#kontakt",
-    gradient: "from-purple-500/10 to-pink-500/10",
+    gradient: "from-slate-200/40 to-slate-100/20",
   },
 ];
 
@@ -61,7 +65,7 @@ export default function ServicesSection({ id, onNavigate }: ServicesSectionProps
             Ganzheitliche Lösungen für Ihre Werkzeuge
           </h2>
           <p className="section-subtitle" data-testid="text-services-subtitle">
-            Ihr kompetenter Partner für professionelle Elektrowerkzeuge – von der Beratung bis zur Wartung.
+            Ihr kompetenter Partner für professionelle Elektrowerkzeuge von der Beratung bis zur Wartung.
           </p>
         </div>
 
@@ -74,13 +78,12 @@ export default function ServicesSection({ id, onNavigate }: ServicesSectionProps
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: index * 0.1 }}
             >
-              <Card 
-                className="group relative p-8 h-full flex flex-col bg-white dark:bg-slate-900 border border-border rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden" 
+              <Card
+                className="group relative p-8 h-full flex flex-col bg-white dark:bg-slate-900 border border-border rounded-2xl shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all duration-500 overflow-hidden"
                 data-testid={`card-service-${service.id}`}
               >
-                {/* Hover Gradient Background */}
                 <div className={`absolute inset-0 bg-gradient-to-br ${service.gradient} opacity-0 group-hover:opacity-100 transition-opacity duration-500 -z-10`} />
-                
+
                 <div className="w-14 h-14 rounded-2xl bg-slate-50 dark:bg-slate-800 flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300 shadow-inner">
                   <service.icon className="w-7 h-7 text-primary" />
                 </div>

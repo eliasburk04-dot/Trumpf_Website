@@ -5,33 +5,33 @@ import { Factory, Building2, Ship, Train, Wrench, HardHat } from "lucide-react";
 const industries = [
   {
     icon: Factory,
-    name: "Metal Fabrication",
-    description: "Sheet metal workshops and manufacturing facilities",
+    name: "Metallbau",
+    description: "Zuschnitt, Kantenbearbeitung und Nacharbeit in Serien- und Projektfertigung.",
   },
   {
     icon: Building2,
-    name: "Construction",
-    description: "Structural steel and building envelope work",
+    name: "Dach und Fassade",
+    description: "Sichere Bearbeitung von Profilen, Paneelen und Sichtkanten auf der Baustelle.",
   },
   {
     icon: Ship,
-    name: "Shipbuilding",
-    description: "Marine construction and repair yards",
+    name: "Anlagenbau",
+    description: "Robuste Werkzeuge für dickere Bleche und wiederholbare Ergebnisse im Dauerbetrieb.",
   },
   {
     icon: Train,
-    name: "Rail & Transit",
-    description: "Railway vehicle manufacturing and maintenance",
+    name: "Fahrzeugbau",
+    description: "Präzise Schnittqualität für Triebfahrzeuge, Nutzfahrzeuge und Sonderaufbauten.",
   },
   {
     icon: Wrench,
-    name: "HVAC",
-    description: "Ductwork fabrication and installation",
+    name: "Lüftungsbau",
+    description: "Effiziente Fertigung von Kanälen und Falzverbindungen mit hoher Prozesssicherheit.",
   },
   {
     icon: HardHat,
-    name: "Heavy Equipment",
-    description: "Industrial machinery and equipment building",
+    name: "Werkstattservice",
+    description: "Wartung und Reparatur für verlässliche Maschinenverfügbarkeit im Tagesgeschäft.",
   },
 ];
 
@@ -43,27 +43,21 @@ export default function IndustriesSection({ id }: IndustriesSectionProps) {
   return (
     <section
       id={id}
-      className="py-20 lg:py-32 bg-background"
+      className="section bg-white dark:bg-slate-900"
       data-testid="section-industries"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="text-center mb-12">
-          <h2
-            className="text-3xl lg:text-4xl font-bold tracking-tight mb-4"
-            data-testid="text-industries-title"
-          >
-            Industries We Serve
+      <div className="container mx-auto px-4">
+        <div className="section-header section-header-center">
+          <span className="section-label">Branchen</span>
+          <h2 className="section-title" data-testid="text-industries-title">
+            Einsatzfelder mit hohem Anspruch
           </h2>
-          <p
-            className="text-muted-foreground text-lg max-w-2xl mx-auto"
-            data-testid="text-industries-subtitle"
-          >
-            From precision sheet metal work to heavy industrial applications, our tools are
-            trusted across the most demanding sectors.
+          <p className="section-subtitle" data-testid="text-industries-subtitle">
+            Unsere Lösungen decken typische Fertigungsaufgaben in Handwerk und Industrie ab.
           </p>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-4">
+        <div className="card-grid-3">
           {industries.map((industry, index) => (
             <motion.div
               key={industry.name}
@@ -73,14 +67,14 @@ export default function IndustriesSection({ id }: IndustriesSectionProps) {
               transition={{ duration: 0.4, delay: index * 0.05 }}
             >
               <Card
-                className="p-5 text-center h-full hover-elevate cursor-pointer"
+                className="p-6 text-center h-full border border-border bg-slate-50 dark:bg-slate-800 hover:shadow-lg transition-shadow"
                 data-testid={`card-industry-${industry.name.toLowerCase().replace(/\s+/g, "-")}`}
               >
-                <div className="w-12 h-12 mx-auto rounded-md bg-muted flex items-center justify-center mb-3">
-                  <industry.icon className="w-6 h-6 text-muted-foreground" />
+                <div className="w-12 h-12 mx-auto rounded-full bg-primary/10 flex items-center justify-center mb-3">
+                  <industry.icon className="w-6 h-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-sm mb-1">{industry.name}</h3>
-                <p className="text-xs text-muted-foreground">{industry.description}</p>
+                <h3 className="font-semibold text-base mb-2">{industry.name}</h3>
+                <p className="text-sm text-muted-foreground">{industry.description}</p>
               </Card>
             </motion.div>
           ))}

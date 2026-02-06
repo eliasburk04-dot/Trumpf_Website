@@ -76,6 +76,8 @@ export default function PromotionsSection({ id, onContactClick }: PromotionsSect
                       className={`w-full h-full object-contain transition-transform duration-700 ${
                         hoveredPromo === promo.id ? "scale-110" : ""
                       }`}
+                      loading="lazy"
+                      decoding="async"
                     />
                     <span className="absolute top-4 left-4 tag-orange" data-testid={`badge-promo-${promo.id}`}>
                       {promo.badge}
@@ -142,11 +144,12 @@ export default function PromotionsSection({ id, onContactClick }: PromotionsSect
               >
                 Jetzt Beratung anfordern
               </Button>
-              <div 
-                className="h-14 px-10 text-lg rounded-full border border-white/30 text-white bg-transparent flex items-center justify-center transition-colors"
+              <a
+                href="tel:+497141921912"
+                className="h-14 px-10 text-lg rounded-full border border-white/30 text-white bg-transparent flex items-center justify-center transition-colors hover:bg-white/10"
               >
                 <Phone className="mr-2 w-5 h-5 text-white" /> +49 7141 921 912
-              </div>
+              </a>
             </div>
           </div>
         </motion.div>

@@ -12,7 +12,6 @@ export default function AboutSection({ id }: AboutSectionProps) {
     <section id={id} className="section bg-white dark:bg-slate-900" data-testid="section-about">
       <div className="container mx-auto px-4">
         <div className="split-layout">
-          {/* Left: Content */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -20,26 +19,25 @@ export default function AboutSection({ id }: AboutSectionProps) {
             transition={{ duration: 0.6 }}
             className="content-block"
           >
-            <span className="section-label">Über uns</span>
+            <span className="section-label">Unternehmen</span>
             <h2 className="section-title" data-testid="text-about-title">
-              Ihr Partner für TRUMPF Elektrowerkzeuge
+              Partner für TRUMPF Elektrowerkzeuge
             </h2>
             <p className="text-lg text-muted-foreground" data-testid="text-about-description">
-              Die Thomas Burk GmbH ist Ihr zuverlässiger Partner für TRUMPF TruTool Elektrowerkzeuge 
-              in ganz Baden-Württemberg und Bayern. Als Meisterbetrieb verbinden wir 
-              fundiertes Fachwissen mit persönlicher Beratung.
+              Die Thomas Burk GmbH betreut Industrie- und Handwerkskunden in Baden-Württemberg
+              und Bayern mit Beratung, Verkauf, Wartung und Reparatur.
             </p>
             <p className="text-lg text-muted-foreground">
-              Unser Team aus erfahrenen Fachleuten für Elektrotechnik, Feinwerkmechanik und CNC-Technik 
-              steht Ihnen bei allen Fragen rund um professionelle Elektrowerkzeuge zur Seite.
+              Unser Team verbindet Erfahrung in Elektrotechnik, Feinwerkmechanik und CNC-naher
+              Fertigung mit praxisnahen Lösungsvorschlägen.
             </p>
 
             <ul className="check-list mt-8">
               {[
                 "Offizieller TRUMPF Partner seit über 30 Jahren",
-                "Individuelle Lösungskonzepte für Ihr Handwerk",
-                "Höchste Zuverlässigkeit & Termintreue",
-                "Express-Service bei Reparaturen"
+                "Individuelle Lösungskonzepte für Fertigung und Montage",
+                "Hohe Zuverlässigkeit und kurze Reaktionszeiten",
+                "Express-Service bei Reparaturen",
               ].map((item, i) => (
                 <li key={i}>
                   <CheckCircle2 className="check-list-icon" />
@@ -49,7 +47,6 @@ export default function AboutSection({ id }: AboutSectionProps) {
             </ul>
           </motion.div>
 
-          {/* Right: Images */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             whileInView={{ opacity: 1, x: 0 }}
@@ -60,20 +57,12 @@ export default function AboutSection({ id }: AboutSectionProps) {
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-4">
                 <div className="image-frame-floating aspect-[4/5]">
-                  <img
-                    src={workshopImage}
-                    alt="Moderne Werkstatt"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={workshopImage} alt="Moderne Werkstatt" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </div>
               </div>
               <div className="space-y-4 pt-8">
                 <div className="image-frame-floating aspect-[4/5]">
-                  <img
-                    src={craftsmanImage}
-                    alt="Präzisionsarbeit"
-                    className="w-full h-full object-cover"
-                  />
+                  <img src={craftsmanImage} alt="Präzisionsarbeit" className="w-full h-full object-cover" loading="lazy" decoding="async" />
                 </div>
               </div>
             </div>

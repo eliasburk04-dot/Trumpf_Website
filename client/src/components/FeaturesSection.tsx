@@ -6,27 +6,27 @@ import precisionImage from "@assets/generated_images/precision_cutting_detail.pn
 const features = [
   {
     icon: Shield,
-    title: "Swiss Precision",
+    title: "Präzise Fertigungsqualität",
     description:
-      "Manufactured in Switzerland with meticulous attention to detail and quality control.",
+      "Schnittbilder mit hoher Wiederholgenauigkeit und stabiler Prozessqualität im Serienbetrieb.",
   },
   {
     icon: Zap,
-    title: "Cordless Power",
+    title: "Leistung für den Alltag",
     description:
-      "Advanced battery technology for maximum mobility without compromising performance.",
+      "Ausgelegt für Werkstatt und Montage mit verlässlicher Leistung über lange Einsatzzeiten.",
   },
   {
     icon: Award,
-    title: "100+ Years Heritage",
+    title: "Service mit Verantwortung",
     description:
-      "A century of innovation and engineering excellence backing every tool we make.",
+      "Beratung, Inbetriebnahme und Wartung aus einer Hand für kurze Reaktionszeiten.",
   },
   {
     icon: Globe,
-    title: "Global Support",
+    title: "Regionale Nähe",
     description:
-      "Worldwide dealer network with expert technical support in 86 countries.",
+      "Betreuung in Baden-Württemberg und Bayern mit direktem Ansprechpartner.",
   },
 ];
 
@@ -38,29 +38,23 @@ export default function FeaturesSection({ id }: FeaturesSectionProps) {
   return (
     <section
       id={id}
-      className="py-20 lg:py-32 bg-card"
+      className="section bg-slate-50 dark:bg-slate-950"
       data-testid="section-features"
     >
-      <div className="max-w-7xl mx-auto px-6 lg:px-8">
-        <div className="grid lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+      <div className="container mx-auto px-4">
+        <div className="split-layout">
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
           >
-            <h2
-              className="text-3xl lg:text-4xl font-bold tracking-tight mb-6"
-              data-testid="text-features-title"
-            >
-              Why Choose TRUMP Elektrowerkzeuge
+            <span className="section-label">Warum TRUMPF</span>
+            <h2 className="section-title mb-6" data-testid="text-features-title">
+              Werkzeuge für anspruchsvolle Metallverarbeitung
             </h2>
-            <p
-              className="text-muted-foreground text-lg mb-8"
-              data-testid="text-features-subtitle"
-            >
-              When precision matters, professionals trust TRUMP. Our power tools combine
-              German engineering philosophy with Swiss manufacturing excellence.
+            <p className="section-subtitle mb-8" data-testid="text-features-subtitle">
+              Unser Fokus liegt auf kontrollierbarer Qualität, klaren Prozessen und hoher Produktivität.
             </p>
 
             <div className="grid sm:grid-cols-2 gap-6">
@@ -73,7 +67,7 @@ export default function FeaturesSection({ id }: FeaturesSectionProps) {
                   transition={{ duration: 0.4, delay: index * 0.1 }}
                 >
                   <Card
-                    className="p-5 h-full"
+                    className="p-5 h-full bg-white dark:bg-slate-900 border border-border"
                     data-testid={`card-feature-${feature.title.toLowerCase().replace(" ", "-")}`}
                   >
                     <div className="w-10 h-10 rounded-md bg-primary/10 flex items-center justify-center mb-4">
@@ -94,17 +88,19 @@ export default function FeaturesSection({ id }: FeaturesSectionProps) {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="aspect-[4/3] rounded-md overflow-hidden">
+            <div className="image-frame aspect-[4/3]">
               <img
                 src={precisionImage}
-                alt="Precision cutting detail"
+                alt="Präziser Schnitt in der Metallbearbeitung"
                 className="w-full h-full object-cover"
                 data-testid="img-features"
+                loading="lazy"
+                decoding="async"
               />
             </div>
-            <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-md max-w-[200px]">
-              <div className="text-4xl font-bold mb-1">5.4B</div>
-              <div className="text-sm text-primary-foreground/80">EUR Group Revenue</div>
+            <div className="absolute -bottom-6 -left-6 bg-primary text-primary-foreground p-6 rounded-xl max-w-[230px] shadow-xl">
+              <div className="text-3xl font-bold mb-1">24h</div>
+              <div className="text-sm text-primary-foreground/85">Rückmeldung an Werktagen</div>
             </div>
           </motion.div>
         </div>

@@ -48,6 +48,8 @@ export default function ProductCard({ product, onViewDetails }: ProductCardProps
               mixBlendMode: 'multiply'
             }}
             data-testid={`img-product-${product.id}`}
+            loading="lazy"
+            decoding="async"
           />
           {product.isNew && (
             <Badge className="absolute top-4 left-4 text-xs bg-primary text-white shadow-lg" data-testid={`badge-new-${product.id}`}>
