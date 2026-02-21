@@ -19,8 +19,8 @@ export default function Aktionen() {
           property="og:description"
           content="Aktuelle Promotionen mit kostenlosen Zugaben für Baden-Württemberg und Bayern."
         />
-        <meta property="og:url" content="https://burk-trutool.de/aktionen" />
-        <link rel="canonical" href="https://burk-trutool.de/aktionen" />
+        <meta property="og:url" content="https://www.burk-trutool.de/aktionen" />
+        <link rel="canonical" href="https://www.burk-trutool.de/aktionen" />
       </Helmet>
 
       <Navigation />

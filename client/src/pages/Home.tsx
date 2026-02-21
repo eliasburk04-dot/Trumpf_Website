@@ -21,18 +21,18 @@ export default function Home() {
     "@graph": [
       {
         "@type": "Organization",
-        "@id": "https://burk-trutool.de/#organization",
+        "@id": "https://www.burk-trutool.de/#organization",
         name: "Thomas Burk GmbH",
-        url: "https://burk-trutool.de/",
+        url: "https://www.burk-trutool.de/",
         email: "mailto:burk-trutools@web.de",
         telephone: "+49 7141 921 912",
       },
       {
         "@type": "LocalBusiness",
-        "@id": "https://burk-trutool.de/#localbusiness",
+        "@id": "https://www.burk-trutool.de/#localbusiness",
         name: "Thomas Burk GmbH",
-        image: "https://burk-trutool.de/android-chrome-512x512.png?v=20260221",
-        url: "https://burk-trutool.de/",
+        image: "https://www.burk-trutool.de/android-chrome-512x512.png?v=20260221",
+        url: "https://www.burk-trutool.de/",
         telephone: "+49 7141 921 912",
         email: "mailto:burk-trutools@web.de",
         address: {
@@ -43,7 +43,7 @@ export default function Home() {
           addressCountry: "DE",
         },
         areaServed: ["Baden-Württemberg", "Bayern"],
-        sameAs: ["https://burk-trutool.de/"],
+        sameAs: ["https://www.burk-trutool.de/"],
       },
     ],
   };
@@ -84,8 +84,8 @@ export default function Home() {
           content="Präzision in der Metallverarbeitung mit professioneller Beratung und schnellem Service."
         />
         <meta property="og:type" content="website" />
-        <meta property="og:url" content="https://burk-trutool.de/" />
-        <link rel="canonical" href="https://burk-trutool.de/" />
+        <meta property="og:url" content="https://www.burk-trutool.de/" />
+        <link rel="canonical" href="https://www.burk-trutool.de/" />
         <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 

@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://burk-trutool.de/sitemap.xml
+Sitemap: https://www.burk-trutool.de/sitemap.xml

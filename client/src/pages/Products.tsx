@@ -36,8 +36,8 @@ export default function ProductsPage() {
           property="og:description"
           content="Produktübersicht der TRUMPF TruTool Elektrowerkzeuge mit technischen Daten und direkter Beratung."
         />
-        <meta property="og:url" content="https://burk-trutool.de/produkte" />
-        <link rel="canonical" href="https://burk-trutool.de/produkte" />
+        <meta property="og:url" content="https://www.burk-trutool.de/produkte" />
+        <link rel="canonical" href="https://www.burk-trutool.de/produkte" />
       </Helmet>
 
       <Navigation onNavigate={handleNavigate} />

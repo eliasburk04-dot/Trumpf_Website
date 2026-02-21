@@ -16,8 +16,8 @@ export default function Datenschutz() {
         <meta name="description" content="Datenschutzhinweise der Thomas Burk GmbH." />
         <meta property="og:title" content="Datenschutz | Thomas Burk GmbH" />
         <meta property="og:description" content="Datenschutzhinweise der Thomas Burk GmbH." />
-        <meta property="og:url" content="https://burk-trutool.de/datenschutz" />
-        <link rel="canonical" href="https://burk-trutool.de/datenschutz" />
+        <meta property="og:url" content="https://www.burk-trutool.de/datenschutz" />
+        <link rel="canonical" href="https://www.burk-trutool.de/datenschutz" />
       </Helmet>
 
       <Navigation />
