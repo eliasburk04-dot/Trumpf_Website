@@ -32,10 +32,10 @@ export default function Aktionen() {
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ duration: 0.6 }}
-              className="mx-auto max-w-4xl rounded-3xl border border-white/15 bg-white/[0.06] px-6 py-10 text-center shadow-2xl shadow-black/20 backdrop-blur-xl sm:px-8"
+              className="mx-auto max-w-4xl rounded-3xl border border-blue-300/20 bg-gradient-to-br from-slate-900/95 via-slate-900/90 to-blue-950/85 px-6 py-10 text-center shadow-2xl shadow-slate-950/40 backdrop-blur-xl sm:px-8"
             >
-              <h1 className="mb-6 text-4xl font-bold text-white sm:text-5xl lg:text-6xl">Aktuelle Promotionen</h1>
-              <p className="mx-auto max-w-3xl text-base text-slate-200 sm:text-lg lg:text-xl">
+              <h1 className="mb-6 text-4xl font-bold text-slate-50 sm:text-5xl lg:text-6xl">Aktuelle Promotionen</h1>
+              <p className="mx-auto max-w-3xl text-base text-slate-200/95 sm:text-lg lg:text-xl">
                 Sparen Sie jetzt mit unseren aktuellen TRUMPF Aktionen. Kostenlose Zugaben beim Kauf ausgewählter Produkte, nur für begrenzte Zeit.
               </p>
             </motion.div>

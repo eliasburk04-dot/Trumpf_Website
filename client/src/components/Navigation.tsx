@@ -128,7 +128,7 @@ export function Navigation({ onNavigate }: NavigationProps) {
               "lg:hidden p-2 rounded-lg focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary",
               scrolled || isOpen || location !== "/" ? "text-foreground" : "text-white",
             )}
-            aria-label={isOpen ? "Navigation schliessen" : "Navigation oeffnen"}
+            aria-label={isOpen ? "Navigation schließen" : "Navigation öffnen"}
             aria-expanded={isOpen}
           >
             {isOpen ? <X /> : <Menu />}
