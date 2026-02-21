@@ -14,6 +14,10 @@ export default function Impressum() {
       <Helmet>
         <title>Impressum | Thomas Burk GmbH</title>
         <meta name="description" content="Impressum der Thomas Burk GmbH, Ihr TRUMPF Partner in Ludwigsburg." />
+        <meta property="og:title" content="Impressum | Thomas Burk GmbH" />
+        <meta property="og:description" content="Impressum der Thomas Burk GmbH." />
+        <meta property="og:url" content="https://burk-trutool.de/impressum" />
+        <link rel="canonical" href="https://burk-trutool.de/impressum" />
       </Helmet>
 
       <Navigation />

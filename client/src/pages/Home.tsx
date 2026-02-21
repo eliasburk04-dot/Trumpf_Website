@@ -16,6 +16,37 @@ import { products } from "@/data/products";
 export default function Home() {
   const [location, setLocation] = useLocation();
   const featuredProduct = products.find((product) => product.id === "trutool-n-700") || products[0];
+  const structuredData = {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://burk-trutool.de/#organization",
+        name: "Thomas Burk GmbH",
+        url: "https://burk-trutool.de/",
+        email: "mailto:burk-trutools@web.de",
+        telephone: "+49 7141 921 912",
+      },
+      {
+        "@type": "LocalBusiness",
+        "@id": "https://burk-trutool.de/#localbusiness",
+        name: "Thomas Burk GmbH",
+        image: "https://burk-trutool.de/android-chrome-512x512.png?v=20260221",
+        url: "https://burk-trutool.de/",
+        telephone: "+49 7141 921 912",
+        email: "mailto:burk-trutools@web.de",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Friedrich-Naumann-Str. 11",
+          postalCode: "71636",
+          addressLocality: "Ludwigsburg",
+          addressCountry: "DE",
+        },
+        areaServed: ["Baden-Württemberg", "Bayern"],
+        sameAs: ["https://burk-trutool.de/"],
+      },
+    ],
+  };
 
   // Scroll to hash on mount or location change
   useEffect(() => {
@@ -52,6 +83,10 @@ export default function Home() {
           property="og:description"
           content="Präzision in der Metallverarbeitung mit professioneller Beratung und schnellem Service."
         />
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://burk-trutool.de/" />
+        <link rel="canonical" href="https://burk-trutool.de/" />
+        <script type="application/ld+json">{JSON.stringify(structuredData)}</script>
       </Helmet>
 
       <Navigation onNavigate={scrollToSection} />

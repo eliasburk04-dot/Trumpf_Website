@@ -19,7 +19,8 @@ export default function Aktionen() {
           property="og:description"
           content="Aktuelle Promotionen mit kostenlosen Zugaben für Baden-Württemberg und Bayern."
         />
-        <link rel="canonical" href="https://trumpf-website.vercel.app/aktionen" />
+        <meta property="og:url" content="https://burk-trutool.de/aktionen" />
+        <link rel="canonical" href="https://burk-trutool.de/aktionen" />
       </Helmet>
 
       <Navigation />
