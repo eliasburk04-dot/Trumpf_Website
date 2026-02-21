@@ -25,8 +25,8 @@ export default function Aktionen() {
       <Navigation />
 
       <main className="flex-grow bg-slate-100 dark:bg-slate-950">
-        <section className="relative isolate overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
-          <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-100 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950" aria-hidden="true" />
+        <section className="relative overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
+          <div className="absolute inset-0 -z-10 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-100 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950" aria-hidden="true" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
               initial={{ opacity: 0, y: 20 }}
