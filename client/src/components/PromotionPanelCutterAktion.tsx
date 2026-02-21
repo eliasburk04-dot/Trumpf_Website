@@ -17,7 +17,7 @@ export default function PromotionPanelCutterAktion() {
 
   const handleContact = () => {
     window.location.href =
-      "mailto:burk-trutools@web.de?subject=Anfrage%20FRUEHJAHRSAKTION%202026%20TPC%20165%20-%20Gratis%20N%20160";
+      "mailto:burk-trutools@web.de?subject=Anfrage%20FR%C3%9CHJAHRSAKTION%202026%20TPC%20165%20-%20Gratis%20N%20160";
   };
 
   return (
@@ -31,7 +31,7 @@ export default function PromotionPanelCutterAktion() {
           className="mb-10 text-center sm:mb-12"
         >
           <Badge className="mb-4 rounded-full bg-emerald-500/15 px-4 py-1 text-emerald-700 hover:bg-emerald-500/20 dark:bg-emerald-500/20 dark:text-emerald-200 dark:hover:bg-emerald-500/30">
-            FRUEHJAHRSAKTION 2026
+            FRÜHJAHRSAKTION 2026
           </Badge>
           <h2 className="mb-4 text-3xl font-bold text-slate-900 dark:text-slate-100 sm:text-4xl lg:text-5xl">Panel Cutter Aktion</h2>
           <p className="mx-auto mb-6 max-w-3xl text-base text-slate-600 dark:text-slate-300 sm:text-lg lg:text-xl">
@@ -179,7 +179,7 @@ export default function PromotionPanelCutterAktion() {
               href="https://www.trumpf.info/4f96mc"
               target="_blank"
               rel="noopener noreferrer"
-              aria-label="Mehr Details zur FRUEHJAHRSAKTION 2026"
+              aria-label="Mehr Details zur FRÜHJAHRSAKTION 2026"
               className="block w-full rounded-xl border border-white/30 py-3 text-center text-sm transition-colors duration-200 hover:bg-white/10 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-white/90 focus-visible:ring-offset-2 focus-visible:ring-offset-emerald-700"
             >
               Mehr Details
