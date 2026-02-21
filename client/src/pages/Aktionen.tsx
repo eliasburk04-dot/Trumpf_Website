@@ -7,7 +7,7 @@ import { motion } from "framer-motion";
 
 export default function Aktionen() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen font-sans bg-background text-foreground antialiased selection:bg-primary/20">
       <Helmet>
         <title>Aktionen 2026 | TRUMPF Elektrowerkzeuge</title>
         <meta
@@ -24,8 +24,8 @@ export default function Aktionen() {
 
       <Navigation />
 
-      <main className="bg-slate-100 dark:bg-slate-950">
-        <section className="relative isolate overflow-hidden py-16 sm:py-20 lg:py-24">
+      <main className="flex-grow bg-slate-100 dark:bg-slate-950">
+        <section className="relative isolate overflow-hidden pt-28 pb-16 sm:pt-32 sm:pb-20 lg:pt-36 lg:pb-24">
           <div className="absolute inset-0 bg-gradient-to-b from-slate-900 via-slate-900 to-slate-100 dark:from-slate-950 dark:via-slate-950 dark:to-slate-950" aria-hidden="true" />
           <div className="relative mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
             <motion.div
@@ -79,6 +79,6 @@ export default function Aktionen() {
       </main>
 
       <Footer />
-    </>
+    </div>
   );
 }

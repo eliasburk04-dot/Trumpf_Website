@@ -7,7 +7,6 @@ import ProductsSection from "@/components/ProductsSection";
 import FeaturesSection from "@/components/FeaturesSection";
 import FeaturedProductSection from "@/components/FeaturedProductSection";
 import IndustriesSection from "@/components/IndustriesSection";
-import TestimonialsSection from "@/components/TestimonialsSection";
 import CTASection from "@/components/CTASection";
 import ContactSection from "@/components/ContactSection";
 import Footer from "@/components/Footer";
@@ -65,7 +64,6 @@ export default function Home() {
         <FeaturesSection id="leistungen" />
         <FeaturedProductSection product={featuredProduct} onContact={() => scrollToSection("kontakt")} />
         <IndustriesSection id="branchen" />
-        <TestimonialsSection id="referenzen" />
         <CTASection
           onFindDealer={() => scrollToSection("branchen")}
           onRequestCatalog={() => setLocation("/produkte")}

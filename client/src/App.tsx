@@ -12,6 +12,19 @@ const Impressum = lazy(() => import("@/pages/Impressum"));
 const Datenschutz = lazy(() => import("@/pages/Datenschutz"));
 const NotFound = lazy(() => import("@/pages/not-found"));
 
+function ScrollToTop() {
+  const [location] = useLocation();
+
+  useEffect(() => {
+    // Don't scroll if there's a hash (anchor navigation)
+    if (!window.location.hash) {
+      window.scrollTo(0, 0);
+    }
+  }, [location]);
+
+  return null;
+}
+
 function RedirectToAktionen() {
   const [, setLocation] = useLocation();
 
@@ -25,6 +38,7 @@ function RedirectToAktionen() {
 function Router() {
   return (
     <Suspense fallback={<div className="min-h-screen bg-background" />}>
+      <ScrollToTop />
       <Switch>
         <Route path="/" component={Home} />
         <Route path="/produkte" component={Products} />
